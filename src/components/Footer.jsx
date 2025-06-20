@@ -16,9 +16,9 @@ export function Footer() {
   ];
 
   const socialLinks = [
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Github, href: '#', label: 'GitHub' },
-    { icon: Mail, href: 'mailto:mugambi.lewis@email.com', label: 'Email' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/mugambi-lewis-64051332b/', label: 'LinkedIn' },
+    { icon: Github, href: 'https://github.com/mugambilewis', label: 'GitHub' },
+    { icon: Mail, href: 'mailto:mugambilewis001@gmail.com', label: 'Email' },
   ];
 
   const scrollToTop = () => {

@@ -23,14 +23,14 @@ export function HeroSection() {
                 </span>
               </h1>
               <p className="text-xl md:text-2xl text-foreground/70 font-inter max-w-2xl">
-                Building the Future with Code, Design & Engineering
+                Building the Future with Engineering, Code & Design
               </p>
             </div>
 
             {/* Contact Info */}
             <div className="space-y-2 text-foreground/60">
-              <p className="font-inter">📧 mugambi.lewis@email.com</p>
-              <p className="font-inter">📱 +1 (555) 123-4567</p>
+              <p className="font-inter">📧 mugambilewis001@gmail.com</p>
+              <p className="font-inter">📱 +254 794 644-395</p>
             </div>
 
             {/* Action Buttons */}

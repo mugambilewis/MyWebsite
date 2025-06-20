@@ -55,10 +55,10 @@ export function ContactSection() {
   };
 
   const socialLinks = [
-    { icon: Linkedin, label: 'LinkedIn', href: '#', color: 'text-blue-600' },
-    { icon: Github, label: 'GitHub', href: '#', color: 'text-gray-800 dark:text-gray-200' },
-    { icon: Mail, label: 'Email', href: 'mailto:mugambi.lewis@email.com', color: 'text-red-500' },
-    { icon: Phone, label: 'Phone', href: 'tel:+15551234567', color: 'text-green-500' },
+    { icon: Linkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/mugambi-lewis-64051332b/', color: 'text-blue-600' },
+    { icon: Github, label: 'GitHub', href: 'https://github.com/mugambilewis', color: 'text-gray-800 dark:text-gray-200' },
+    { icon: Mail, label: 'Email', href: 'mailto:mugambilewis001@gmail.com', color: 'text-red-500' },
+    { icon: Phone, label: 'Phone', href: 'tel:+254794644395', color: 'text-green-500' },
   ];
 
   return (
@@ -148,14 +148,14 @@ export function ContactSection() {
                   <Mail className="w-6 h-6 text-blue-500" />
                   <div>
                     <p className="font-medium">Email</p>
-                    <p className="text-foreground/70">mugambi.lewis@email.com</p>
+                    <p className="text-foreground/70">mugambilewis001@gmail.com</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-4 p-4 bg-background/60 backdrop-blur-sm rounded-xl border border-border/40">
                   <Phone className="w-6 h-6 text-green-500" />
                   <div>
                     <p className="font-medium">Phone</p>
-                    <p className="text-foreground/70">+1 (555) 123-4567</p>
+                    <p className="text-foreground/70">+254 794 644-395</p>
                   </div>
                 </div>
               </div>
