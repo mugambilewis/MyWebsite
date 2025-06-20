@@ -2,13 +2,15 @@ import React from 'react';
 import { Navigation } from '/src/components/Navigation';
 import { HeroSection } from '/src/components/HeroSection.jsx';
 import ParticleBackground from './components/ParticleBackground';
-import Footer from './components/Footer';
+import { Footer } from './components/Footer';
 import { AnimatedBackground } from './components/AnimatedBackground';
 import { ThemeProvider } from './components/ThemeProvider';
 import { AboutSection } from './components/AboutSection';
 import { SkillsSection } from './components/SkillsSection';
 import { ServicesSection } from './components/ServicesSection';
 import { ProjectsSection } from './components/ProjectsSection';
+import { Contact } from 'lucide-react';
+import { ContactSection } from './components/ContactSection';
 
 function App() {
   
@@ -25,7 +27,9 @@ function App() {
           <SkillsSection />
           <ServicesSection />
           <ProjectsSection />
+          <ContactSection />
           <ParticleBackground />
+          <Footer />
         </main>
       </div>
      </ThemeProvider>
