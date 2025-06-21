@@ -4,7 +4,6 @@ import { HeroSection } from '/src/components/HeroSection.jsx';
 import ParticleBackground from './components/ParticleBackground';
 import { Footer } from './components/Footer';
 import { AnimatedBackground } from './components/AnimatedBackground';
-import { ThemeProvider } from './components/ThemeProvider';
 import { AboutSection } from './components/AboutSection';
 import { SkillsSection } from './components/SkillsSection';
 import { ServicesSection } from './components/ServicesSection';
@@ -16,8 +15,7 @@ function App() {
   
 
   return (
-    <ThemeProvider defaultTheme="system" storageKey="portfolio-theme">
-      <div className="min-h-screen bg-background font-inter">
+      <div className="min-h-screen bg-background text-foreground font-inter">
         <AnimatedBackground />
         <Navigation />
         <main>
@@ -32,7 +30,7 @@ function App() {
           <Footer />
         </main>
       </div>
-     </ThemeProvider>
+     
     
   )
 }

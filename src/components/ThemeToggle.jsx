@@ -1,23 +1,33 @@
-import { Moon, Sun } from 'lucide-react';
-import { useTheme } from '../hooks/useTheme';// Adjust the import path as necessary
+import { Moon, Sun, Laptop } from 'lucide-react';
+import { useTheme } from '../components/ThemeProvider'; // Adjust the import path as necessary
 import { Button } from '@/components/ui/button';
 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
 
-  const toggleTheme = () => {
-    setTheme(theme === 'light' ? 'dark' : 'light');
+  const cycleTheme = () => {
+    const next = theme === 'light' ? 'dark' : theme === 'dark' ? 'system' : 'light';
+    setTheme(next);
   };
+
+  const icon =
+    theme === 'light' ? (
+      <Sun className="h-[1.2rem] w-[1.2rem] text-yellow-400" />
+    ) : theme === 'dark' ? (
+      <Moon className="h-[1.2rem] w-[1.2rem] text-white" />
+    ) : (
+      <Laptop className="h-[1.2rem] w-[1.2rem] text-gray-400" />
+    );
 
   return (
     <Button
       variant="ghost"
       size="icon"
-      onClick={toggleTheme}
+      onClick={cycleTheme}
+      title={`Current: ${theme}`}
       className="relative h-10 w-10 rounded-full border border-border/40 bg-background/60 backdrop-blur-sm hover:bg-accent/80 transition-all duration-300 hover:scale-110"
     >
-      <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-      <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+      {icon}
       <span className="sr-only">Toggle theme</span>
     </Button>
   );

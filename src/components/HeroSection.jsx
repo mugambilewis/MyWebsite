@@ -18,7 +18,7 @@ export function HeroSection() {
             <div className="space-y-4">
               <h1 className="text-5xl md:text-7xl font-space font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
                 Hi, I'm{' '}
-                <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r  from-blue-500 to-purple-600 bg-clip-text text-transparent">
                   Mugambi Lewis
                 </span>
               </h1>

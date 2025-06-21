@@ -1,33 +1,55 @@
-// src/contexts/ThemeContext.jsx
-import React, { createContext, useEffect, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 
-const ThemeContext = createContext();
+const ThemeProviderContext = createContext({
+  theme: 'system',
+  setTheme: () => null,
+});
 
-export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState('light');
+function ThemeProvider({
+  children,
+  defaultTheme = 'system',
+  storageKey = 'vite-ui-theme',
+  ...props
+}) {
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem(storageKey) || defaultTheme;
+  });
 
   useEffect(() => {
-    const saved = localStorage.getItem('theme');
-    if (saved) {
-      setTheme(saved);
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      setTheme('dark');
+    const root = window.document.documentElement;
+    root.classList.remove('light', 'dark');
+
+    if (theme === 'system') {
+      const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
+        ? 'dark'
+        : 'light';
+      root.classList.add(systemTheme);
+    } else {
+      root.classList.add(theme);
     }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem('theme', theme);
-    document.documentElement.classList.remove('light', 'dark');
-    document.documentElement.classList.add(theme);
   }, [theme]);
 
-  const toggleTheme = () => setTheme(prev => (prev === 'light' ? 'dark' : 'light'));
+  const value = {
+    theme,
+    setTheme: (newTheme) => {
+      localStorage.setItem(storageKey, newTheme);
+      setTheme(newTheme);
+    },
+  };
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeProviderContext.Provider value={value} {...props}>
       {children}
-    </ThemeContext.Provider>
+    </ThemeProviderContext.Provider>
   );
-};
+}
 
-export default ThemeContext;
+function useTheme() {
+  const context = useContext(ThemeProviderContext);
+  if (context === undefined) {
+    throw new Error('useTheme must be used within a ThemeProvider');
+  }
+  return context;
+}
+
+export { ThemeProvider, useTheme };
