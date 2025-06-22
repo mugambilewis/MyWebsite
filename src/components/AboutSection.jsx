@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 
+
 export function AboutSection() {
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -24,7 +25,9 @@ export function AboutSection() {
   ];
 
   return (
+     
     <section id="about" className="py-20 px-8 md:px-16 " style={{backgroundColor: 'hsl(var(--muted)/0.3)'}}>
+      
       <div className="max-w-[1440px] mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
@@ -111,5 +114,6 @@ export function AboutSection() {
         </div>
       </div>
     </section>
+ 
   );
 }

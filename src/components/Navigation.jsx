@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import {ThemeToggle} from '../components/ThemeToggle';
+import { Menu, X } from 'lucide-react';
+import { ThemeToggle } from '../components/ThemeToggle';
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => setIsMenuOpen(prev => !prev);
+  const closeMenu = () => setIsMenuOpen(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,16 +31,17 @@ export function Navigation() {
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+      closeMenu();
     }
   };
 
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-background/80 backdrop-blur-md border-b border-border/40'
-          : 'bg-transparent'
-      }`}
+  isScrolled
+    ? 'bg-background/80 backdrop-blur-md border-b border-border/40'
+    : 'bg-background/60 backdrop-blur-md border-b border-border/40'
+}`}
     >
       <div className="max-w-[1440px] mx-auto px-8 md:px-16">
         <div className="flex items-center justify-between h-16">
@@ -46,7 +52,7 @@ export function Navigation() {
             </div>
           </div>
 
-          {/* Navigation Links */}
+          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
               <button
@@ -60,9 +66,35 @@ export function Navigation() {
             ))}
           </div>
 
-          {/* Theme Toggle */}
-          <ThemeToggle />
+          {/* Theme Toggle + Mobile Menu Button */}
+          <div className="flex items-center space-x-4">
+            <ThemeToggle />
+            <button
+              onClick={toggleMenu}
+              className="md:hidden p-2 rounded-md bg-muted hover:bg-muted/80 transition-colors"
+              aria-label="Toggle menu"
+            >
+              {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
         </div>
+
+        {/* Mobile Navigation */}
+        {isMenuOpen && (
+          <div className="md:hidden mt-2 pb-4">
+            <div className="flex flex-col space-y-3">
+              {navItems.map((item) => (
+                <button
+                  key={item.label}
+                  onClick={() => scrollToSection(item.href)}
+                  className="px-4 py-2 text-left text-foreground/80 hover:text-blue-500 transition-colors duration-200"
+                >
+                  {item.label}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   );
