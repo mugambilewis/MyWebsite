@@ -36,7 +36,7 @@ export function ServicesSection() {
   const previewServices = services.slice(0, 3);
 
   return (
-    <section id="services" className="py-20 px-8 md:px-16 bg-muted/30">
+    <section id="services" className="py-20 px-8 md:px-16 " style={{backgroundColor: 'hsl(var(--muted)/0.3)'}}>
       <div className="max-w-[1440px] mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-space font-bold mb-4">Services</h2>

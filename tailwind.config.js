@@ -1,13 +1,11 @@
-/** @type {import('tailwindcss').Config} */
-
 export default {
   darkMode: ["class"], // Use class-based toggling
   content: [
-    './index.html',
-    './src/**/*.{js,jsx}', // add ts/tsx here if you switch back to TS
-    "./app/**/*.{js,jsx}",
-    "./components/**/*.{js,jsx}",
-    "./pages/**/*.{js,jsx}",
+	'./index.html',
+	'./src/**/*.{js,jsx}', // add ts/tsx here if you switch back to TS
+	"./app/**/*.{js,jsx}",
+	"./components/**/*.{js,jsx}",
+	"./pages/**/*.{js,jsx}",
   ],
   theme: {
 		container: {

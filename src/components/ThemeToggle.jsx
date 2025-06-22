@@ -1,5 +1,5 @@
 import { Moon, Sun, Laptop } from 'lucide-react';
-import { useTheme } from '../components/ThemeProvider'; // Adjust the import path as necessary
+import { useTheme } from './ThemeProvider';
 import { Button } from '@/components/ui/button';
 
 export function ThemeToggle() {
@@ -10,14 +10,14 @@ export function ThemeToggle() {
     setTheme(next);
   };
 
-  const icon =
-    theme === 'light' ? (
-      <Sun className="h-[1.2rem] w-[1.2rem] text-yellow-400" />
-    ) : theme === 'dark' ? (
-      <Moon className="h-[1.2rem] w-[1.2rem] text-white" />
-    ) : (
-      <Laptop className="h-[1.2rem] w-[1.2rem] text-gray-400" />
-    );
+  let icon;
+  if (theme === 'light') {
+    icon = <Sun className="h-[1.2rem] w-[1.2rem] text-yellow-400" />;
+  } else if (theme === 'dark') {
+    icon = <Moon className="h-[1.2rem] w-[1.2rem] text-white" />;
+  } else {
+    icon = <Laptop className="h-[1.2rem] w-[1.2rem] text-gray-400" />;
+  }
 
   return (
     <Button

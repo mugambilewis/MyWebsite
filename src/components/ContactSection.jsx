@@ -62,7 +62,7 @@ export function ContactSection() {
   ];
 
   return (
-    <section id="contact" className="py-20 px-8 md:px-16 bg-muted/30">
+    <section id="contact" className="py-20 px-8 md:px-16 " style={{backgroundColor: 'hsl(var(--muted)/0.3)'}}>
       <div className="max-w-[1440px] mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-space font-bold mb-4">Let's Work Together</h2>
@@ -70,6 +70,7 @@ export function ContactSection() {
             Ready to bring your ideas to life? Let's discuss your next project.
           </p>
         </div>
+        
 
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Form */}

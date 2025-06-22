@@ -1,38 +1,25 @@
-import React from 'react';
-import { Navigation } from '/src/components/Navigation';
-import { HeroSection } from '/src/components/HeroSection.jsx';
-import ParticleBackground from './components/ParticleBackground';
-import { Footer } from './components/Footer';
-import { AnimatedBackground } from './components/AnimatedBackground';
-import { AboutSection } from './components/AboutSection';
-import { SkillsSection } from './components/SkillsSection';
-import { ServicesSection } from './components/ServicesSection';
-import { ProjectsSection } from './components/ProjectsSection';
+import { Toaster } from "@/components/ui/sonner";
 
-import { ContactSection } from './components/ContactSection';
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Index from "./pages/index";
+import NotFound from "./pages/NotFound";
 
-function App() {
-  
+const queryClient = new QueryClient();
 
-  return (
-      <div className="min-h-screen bg-background text-foreground font-inter">
-        <AnimatedBackground />
-        <Navigation />
-        <main>
-          
-          <HeroSection />
-          <AboutSection />
-          <SkillsSection />
-          <ServicesSection />
-          <ProjectsSection />
-          <ContactSection />
-          <ParticleBackground />
-          <Footer />
-        </main>
-      </div>
-     
-    
-  )
-}
+const App = () => (
+  <QueryClientProvider client={queryClient}>
+    <TooltipProvider>
+      <Toaster />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
+    </TooltipProvider>
+  </QueryClientProvider>
+);
 
-export default App
+export default App;

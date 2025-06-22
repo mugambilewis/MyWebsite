@@ -16,12 +16,21 @@ export function HeroSection() {
           {/* Left Column - Text Content */}
           <div className="space-y-8 animate-fade-in-up">
             <div className="space-y-4">
-              <h1 className="text-5xl md:text-7xl font-space font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
-                Hi, I'm{' '}
-                <span className="bg-gradient-to-r  from-blue-500 to-purple-600 bg-clip-text text-transparent">
-                  Mugambi Lewis
-                </span>
-              </h1>
+             <h1 className="text-5xl md:text-7xl font-space font-bold">
+  <span 
+    style={{
+      background: `linear-gradient(to right, hsl(var(--foreground)), hsl(var(--foreground) / 0.7))`,
+      WebkitBackgroundClip: 'text',
+      backgroundClip: 'text',
+      color: 'transparent'
+    }}
+  >
+    Hi, I'm{' '}
+  </span>
+  <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
+    Mugambi Lewis
+  </span>
+</h1>
               <p className="text-xl md:text-2xl text-foreground/70 font-inter max-w-2xl">
                 Building the Future with Engineering, Code & Design
               </p>
