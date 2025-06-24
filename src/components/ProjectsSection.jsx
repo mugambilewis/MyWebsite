@@ -1,7 +1,8 @@
-
 import React, { useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { StaggeredReveal } from '@/components/StaggeredReveal';
+import { StaggeredItem } from '@/components/StaggeredItem';
 
 export function ProjectsSection() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -55,8 +56,10 @@ export function ProjectsSection() {
   const filters = ['All', 'Web', 'Engineering', 'Design'];
   const previewProjects = projects.slice(0, 3);
 
-  const filteredProjects = isExpanded 
-    ? (filter === 'All' ? projects : projects.filter(project => project.category === filter))
+  const filteredProjects = isExpanded
+    ? filter === 'All'
+      ? projects
+      : projects.filter((project) => project.category === filter)
     : previewProjects;
 
   return (
@@ -69,17 +72,17 @@ export function ProjectsSection() {
           </p>
         </div>
 
-        {/* Filter Buttons - Only show when expanded */}
+        {/* Filter Buttons */}
         {isExpanded && (
           <div className="flex flex-wrap justify-center gap-4 mb-12">
             {filters.map((filterItem) => (
               <Button
                 key={filterItem}
                 onClick={() => setFilter(filterItem)}
-                variant={filter === filterItem ? "default" : "outline"}
+                variant={filter === filterItem ? 'default' : 'outline'}
                 className={`px-6 py-2 rounded-full transition-all duration-300 ${
-                  filter === filterItem 
-                    ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white' 
+                  filter === filterItem
+                    ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white'
                     : 'border-border/40 bg-background/60 backdrop-blur-sm hover:bg-accent/80'
                 }`}
               >
@@ -89,50 +92,48 @@ export function ProjectsSection() {
           </div>
         )}
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project, index) => (
-            <Card
-              key={index}
-              className="group overflow-hidden bg-background/60 backdrop-blur-sm border-border/40 hover:shadow-xl transition-all duration-500 hover:scale-105"
-            >
-              <div className="relative overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <Button
-                    size="sm"
-                    className="bg-white/20 backdrop-blur-sm border border-white/30 text-white hover:bg-white/30"
-                  >
-                    View Project →
-                  </Button>
-                </div>
-              </div>
-              
-              <div className="p-6">
-                <h3 className="text-xl font-space font-bold mb-3">{project.title}</h3>
-                <p className="text-foreground/70 mb-4 leading-relaxed">
-                  {project.description}
-                </p>
-                
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag, tagIndex) => (
-                    <span
-                      key={tagIndex}
-                      className="px-3 py-1 text-xs bg-gradient-to-r from-blue-500/10 to-purple-600/10 text-blue-600 dark:text-blue-400 rounded-full border border-blue-500/20"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </Card>
-          ))}
-        </div>
+        {/* Projects Grid with StaggeredReveal */}
+        <StaggeredReveal>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredProjects.map((project, index) => (
+              <StaggeredItem key={index}>
+                <Card className="group overflow-hidden bg-background/60 backdrop-blur-sm border-border/40 hover:shadow-xl transition-all duration-500 hover:scale-105">
+                  <div className="relative overflow-hidden">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <Button
+                        size="sm"
+                        className="bg-white/20 backdrop-blur-sm border border-white/30 text-white hover:bg-white/30"
+                      >
+                        View Project →
+                      </Button>
+                    </div>
+                  </div>
+
+                  <div className="p-6">
+                    <h3 className="text-xl font-space font-bold mb-3">{project.title}</h3>
+                    <p className="text-foreground/70 mb-4 leading-relaxed">{project.description}</p>
+                    <div className="flex flex-wrap gap-2">
+                      {project.tags.map((tag, tagIndex) => (
+                        <span
+                          key={tagIndex}
+                          className="px-3 py-1 text-xs bg-gradient-to-r from-blue-500/10 to-purple-600/10 text-blue-600 dark:text-blue-400 rounded-full border border-blue-500/20"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </Card>
+              </StaggeredItem>
+            ))}
+          </div>
+        </StaggeredReveal>
 
         {/* Toggle Button */}
         <div className="text-center mt-12">

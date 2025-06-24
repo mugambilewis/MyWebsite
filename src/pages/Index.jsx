@@ -9,6 +9,7 @@ import { ServicesSection } from '@/components/ServicesSection';
 import { ProjectsSection } from '@/components/ProjectsSection';
 import { ContactSection } from '@/components/ContactSection';
 import { Footer } from '@/components/Footer';
+import CustomCursor from '@/components/CustomCursor';
 
 const Index = () => {
   return (
@@ -17,6 +18,7 @@ const Index = () => {
         <AnimatedBackground />
         <Navigation />
         <main>
+          <CustomCursor />
           <HeroSection />
           <AboutSection />
           <SkillsSection />
