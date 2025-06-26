@@ -3,6 +3,7 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { StaggeredReveal } from '@/components/StaggeredReveal';
 import { StaggeredItem } from '@/components/StaggeredItem';
+import { Link } from 'react-router-dom';
 
 export function ProjectsSection() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -31,18 +32,20 @@ export function ProjectsSection() {
       image: 'https://images.unsplash.com/photo-1493397212122-2b85dda8106b?w=800&h=600&fit=crop',
     },
     {
-      title: 'Portfolio Website',
-      description: 'Responsive portfolio site with advanced animations and interactions',
+      title: 'HealthTracker',
+      description: 'Track health goals, habits, and progress with seamless modern UI.',
       tags: ['Web', 'React', 'Tailwind', 'Animation'],
       category: 'Web',
-      image: 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=800&h=600&fit=crop',
+      image: 'https://res.cloudinary.com/drq4idzdj/image/upload/v1750895103/HealthTackerhub_cbjhcw.png',
+      link: 'https://www.healthawarehub.com', // ← ✅ Add this
     },
     {
-      title: 'Product Prototype',
-      description: '3D modeling and prototyping of consumer electronics housing',
-      tags: ['Engineering', 'Prototyping', 'SolidWorks', '3D'],
+      title: 'Portable Solar Charger for E-Rickshaw',
+      description: 'Engineered a compact, off-grid solar charging system for electric rickshaws. Focused on portability, energy efficiency, and clean power delivery using Proteus simulation and real-world prototyping.',
+      tags: ['Engineering', 'Solar Energy', 'Solidworks', 'Proteus', 'Hardware Design'],
       category: 'Engineering',
-      image: 'https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=800&h=600&fit=crop',
+      image: 'https://res.cloudinary.com/drq4idzdj/image/upload/v1750896880/pexels-kindelmedia-9799700_wycvfj.jpg',
+      link: 'https://www.productprototype.com', // ← ✅ Add this
     },
     {
       title: 'Mobile App UI',
@@ -50,6 +53,7 @@ export function ProjectsSection() {
       tags: ['Design', 'Mobile', 'UI/UX', 'Figma'],
       category: 'Design',
       image: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=800&h=600&fit=crop',
+      route: '/projects/GraphicsShowcase', // ← ✅ Add this
     },
   ];
 
@@ -92,8 +96,8 @@ export function ProjectsSection() {
           </div>
         )}
 
-        {/* Projects Grid with StaggeredReveal */}
-        <StaggeredReveal>
+        {/* ✅ Fix: Pass dynamic keyProp to StaggeredReveal */}
+        <StaggeredReveal keyProp={`${isExpanded}-${filter}`}>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProjects.map((project, index) => (
               <StaggeredItem key={index}>
@@ -106,12 +110,39 @@ export function ProjectsSection() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <Button
-                        size="sm"
-                        className="bg-white/20 backdrop-blur-sm border border-white/30 text-white hover:bg-white/30"
-                      >
-                        View Project →
-                      </Button>
+                      {project.link ? (
+  <a
+    href={project.link}
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <Button
+      size="sm"
+      className="bg-white/20 backdrop-blur-sm border border-white/30 text-white hover:bg-white/30"
+    >
+      View Project →
+    </Button>
+  </a>
+) : project.route ? (
+  <Link to={project.route}>
+    <Button
+      size="sm"
+      className="bg-white/20 backdrop-blur-sm border border-white/30 text-white hover:bg-white/30"
+    >
+      View Project →
+    </Button>
+  </Link>
+) : (
+  <Button
+    size="sm"
+    disabled
+    className="bg-white/10 border border-white/20 text-white cursor-not-allowed"
+  >
+    View Project →
+  </Button>
+)}
+
+
                     </div>
                   </div>
 

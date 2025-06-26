@@ -1,20 +1,7 @@
 // eslint-disable-next-line no-unused-vars
-import { motion, useAnimation } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { useEffect } from 'react';
+import { motion } from 'framer-motion';
 
-export function StaggeredReveal({ children, stagger = 0.15 }) {
-  const controls = useAnimation();
-  const [ref, inView] = useInView({ triggerOnce: false, threshold: 0.2 });
-
-  useEffect(() => {
-    if (inView) {
-      controls.start('visible');
-    } else {
-      controls.start('hidden');
-    }
-  }, [inView, controls]);
-
+export function StaggeredReveal({ children, stagger = 0.15, keyProp }) {
   const container = {
     hidden: {},
     visible: {
@@ -26,10 +13,11 @@ export function StaggeredReveal({ children, stagger = 0.15 }) {
 
   return (
     <motion.div
-      ref={ref}
-      initial="hidden"
-      animate={controls}
+      key={keyProp} // 👈 Forces remount when key changes (e.g., isExpanded state)
       variants={container}
+      initial="hidden"
+      animate="visible"
+      layout
     >
       {children}
     </motion.div>

@@ -46,7 +46,8 @@ export function ServicesSection() {
           </p>
         </div>
 
-        <StaggeredReveal>
+        {/* ✅ Fix: Add keyProp to re-trigger animation on toggle */}
+        <StaggeredReveal keyProp={isExpanded ? 'expanded' : 'collapsed'}>
           <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ${!isExpanded ? 'lg:grid-cols-3' : 'lg:grid-cols-2'}`}>
             {(isExpanded ? services : previewServices).map((service, index) => (
               <StaggeredItem key={index}>

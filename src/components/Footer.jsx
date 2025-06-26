@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowUp, Linkedin, Github, Mail } from 'lucide-react';
+import { ArrowUp, Linkedin, Github, Mail, Facebook } from 'lucide-react';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -19,6 +19,7 @@ export function Footer() {
     { icon: Linkedin, href: 'https://www.linkedin.com/in/mugambi-lewis-64051332b/', label: 'LinkedIn' },
     { icon: Github, href: 'https://github.com/mugambilewis', label: 'GitHub' },
     { icon: Mail, href: 'mailto:mugambilewis001@gmail.com', label: 'Email' },
+    { icon: Facebook, href: 'https://www.facebook.com/mugambi.lewis.7', label: 'Facebook' },
   ];
 
   const scrollToTop = () => {

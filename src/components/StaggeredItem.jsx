@@ -8,7 +8,11 @@ export function StaggeredItem({ children }) {
   };
 
   return (
-    <motion.div variants={item} transition={{ duration: 0.3, ease: 'easeInOut' }}>
+    <motion.div
+      variants={item}
+      transition={{ duration: 0.3, ease: 'easeInOut' }}
+      layout // ✅ Helps with dynamic content
+    >
       {children}
     </motion.div>
   );
