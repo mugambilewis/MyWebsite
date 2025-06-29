@@ -2,7 +2,7 @@ import React from 'react';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import { AnimatedBackground } from '@/components/AnimatedBackground';
 import { Navigation } from '@/components/Navigation';
-import { HeroSection } from '@/components/HeroSection';
+import  HeroSection  from '@/components/HeroSection';
 import { AboutSection } from '@/components/AboutSection';
 import { SkillsSection } from '@/components/SkillsSection';
 import { ServicesSection } from '@/components/ServicesSection';
@@ -17,8 +17,9 @@ const Index = () => {
       <div className="min-h-screen bg-background font-inter">
         <AnimatedBackground />
         <Navigation />
+        <CustomCursor />
         <main>
-          <CustomCursor />
+          
           <HeroSection />
           <AboutSection />
           <SkillsSection />

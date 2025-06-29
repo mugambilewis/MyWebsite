@@ -11,18 +11,35 @@ export function ProjectsSection() {
 
   const projects = [
     {
-      title: 'E-Commerce Platform',
-      description: 'Modern e-commerce solution with React, TypeScript, and Stripe integration',
-      tags: ['Web', 'React', 'TypeScript', 'Stripe'],
+      title: 'CryptoTuma Exchange',
+      description: `CryptoTuma is a fast and secure crypto transfer platform built in collaboration with blockchain developers. It simplifies complex wallets with an intuitive, responsive UI and real-time performance powered by modern web technologies.`,
+      tags: ['Web', 'React', 'NodeJS', 'CryptoPayments', 'NodeJS', 'MongoDB', 'Express'],
       category: 'Web',
       image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&h=600&fit=crop',
     },
     {
-      title: 'Mechanical Component Design',
-      description: 'CAD design and simulation of industrial machinery components',
-      tags: ['Engineering', 'CAD', 'Simulation', 'AutoCAD'],
+      title: 'Portable Solar Charger for E-Rickshaw',
+      description: 'Engineered a compact, off-grid solar charging system for electric rickshaws. Focused on portability, energy efficiency, and clean power delivery using Proteus simulation and real-world prototyping.',
+      tags: ['Engineering', 'Solar Energy', 'Solidworks', 'Proteus', 'Hardware Design'],
       category: 'Engineering',
-      image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=600&fit=crop',
+      image: 'https://res.cloudinary.com/drq4idzdj/image/upload/v1750896880/pexels-kindelmedia-9799700_wycvfj.jpg',
+      link: 'https://www.productprototype.com', // ← ✅ Add this
+    },
+    {
+      title: 'HealthTracker',
+      description: 'Health Tracker helps you monitor your daily habits, mood, hydration, and fitness—all in one clean, user-friendly dashboard. Start building a healthier lifestyle today.',
+      tags: ['Web', 'React', 'Tailwind', 'Animation'],
+      category: 'Web',
+      image: 'https://res.cloudinary.com/drq4idzdj/image/upload/v1750895103/HealthTackerhub_cbjhcw.png',
+      link: 'https://www.healthawarehub.com', // ← ✅ Add this
+    },
+    {
+      title: '🚗 ModuFlex Suspension System',
+      description: `A CAD-designed electromechanical suspension concept for off-road EVs.
+      Built in SolidWorks, this system combines coil-over dampers with an integrated actuator to adapt stiffness based on terrain. Designed for modular EV platforms, it focuses on durability, easy mounting, and real-world serviceability.`,
+      tags: ['Engineering', 'CAD', 'AdvancedManufacturing ', 'SustainableMobility', 'Mechatronics', 'Solidworks'],
+      category: 'Engineering',
+      image: 'https://res.cloudinary.com/drq4idzdj/image/upload/v1750989065/pexels-juan-montes-92812630-11532598_yahxm5.jpg',
     },
     {
       title: 'Brand Identity System',
@@ -39,20 +56,13 @@ export function ProjectsSection() {
       image: 'https://res.cloudinary.com/drq4idzdj/image/upload/v1750895103/HealthTackerhub_cbjhcw.png',
       link: 'https://www.healthawarehub.com', // ← ✅ Add this
     },
+
     {
-      title: 'Portable Solar Charger for E-Rickshaw',
-      description: 'Engineered a compact, off-grid solar charging system for electric rickshaws. Focused on portability, energy efficiency, and clean power delivery using Proteus simulation and real-world prototyping.',
-      tags: ['Engineering', 'Solar Energy', 'Solidworks', 'Proteus', 'Hardware Design'],
-      category: 'Engineering',
-      image: 'https://res.cloudinary.com/drq4idzdj/image/upload/v1750896880/pexels-kindelmedia-9799700_wycvfj.jpg',
-      link: 'https://www.productprototype.com', // ← ✅ Add this
-    },
-    {
-      title: 'Mobile App UI',
-      description: 'Modern mobile application interface with seamless user experience',
+      title: 'Graphics Design',
+      description: 'See some amazing graphics i worked on.',
       tags: ['Design', 'Mobile', 'UI/UX', 'Figma'],
       category: 'Design',
-      image: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=800&h=600&fit=crop',
+      image: 'https://res.cloudinary.com/drq4idzdj/image/upload/v1750977453/pexels-shkrabaanthony-4348401_cwdnzq.jpg',
       route: '/projects/GraphicsShowcase', // ← ✅ Add this
     },
   ];
@@ -84,11 +94,10 @@ export function ProjectsSection() {
                 key={filterItem}
                 onClick={() => setFilter(filterItem)}
                 variant={filter === filterItem ? 'default' : 'outline'}
-                className={`px-6 py-2 rounded-full transition-all duration-300 ${
-                  filter === filterItem
+                className={`px-6 py-2 rounded-full transition-all duration-300 ${filter === filterItem
                     ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white'
                     : 'border-border/40 bg-background/60 backdrop-blur-sm hover:bg-accent/80'
-                }`}
+                  }`}
               >
                 {filterItem}
               </Button>
@@ -111,36 +120,36 @@ export function ProjectsSection() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       {project.link ? (
-  <a
-    href={project.link}
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    <Button
-      size="sm"
-      className="bg-white/20 backdrop-blur-sm border border-white/30 text-white hover:bg-white/30"
-    >
-      View Project →
-    </Button>
-  </a>
-) : project.route ? (
-  <Link to={project.route}>
-    <Button
-      size="sm"
-      className="bg-white/20 backdrop-blur-sm border border-white/30 text-white hover:bg-white/30"
-    >
-      View Project →
-    </Button>
-  </Link>
-) : (
-  <Button
-    size="sm"
-    disabled
-    className="bg-white/10 border border-white/20 text-white cursor-not-allowed"
-  >
-    View Project →
-  </Button>
-)}
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Button
+                            size="sm"
+                            className="bg-white/20 backdrop-blur-sm border border-white/30 text-white hover:bg-white/30"
+                          >
+                            View Project →
+                          </Button>
+                        </a>
+                      ) : project.route ? (
+                        <Link to={project.route}>
+                          <Button
+                            size="sm"
+                            className="bg-white/20 backdrop-blur-sm border border-white/30 text-white hover:bg-white/30"
+                          >
+                            View Project →
+                          </Button>
+                        </Link>
+                      ) : (
+                        <Button
+                          size="sm"
+                          disabled
+                          className="bg-white/10 border border-white/20 text-white cursor-not-allowed"
+                        >
+                          View Project →
+                        </Button>
+                      )}
 
 
                     </div>

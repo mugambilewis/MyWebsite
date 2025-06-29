@@ -1,136 +1,155 @@
-import React from 'react';
+
+import React, { useState, useEffect } from 'react';
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { Mail, Phone } from 'lucide-react';
-import CustomCursor from '@/components/CustomCursor';
+import { Mail, Phone, Star, Users, Code  } from 'lucide-react';
+import AnimatedHero from '@/components/AnimatedHero';
 
-export function HeroSection() {
-  const scrollToSection = (href) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+
+const FloatingParticle = ({ delay = 0 }) => {
+  return (
+    <div 
+      className="particle w-2 h-2 opacity-60"
+      style={{
+        animationDelay: `${delay}s`,
+        left: `${Math.random() * 100}%`,
+        top: `${Math.random() * 100}%`,
+      }}
+    />
+  );
+};
+
+const AnimatedCounter = ({ end, label, icon: Icon }) => {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    const duration = 2000;
+    const steps = 60;
+    const increment = end / steps;
+    let current = 0;
+    
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= end) {
+        setCount(end);
+        clearInterval(timer);
+      } else {
+        setCount(Math.floor(current));
+      }
+    }, duration / steps);
+
+    return () => clearInterval(timer);
+  }, [end]);
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center px-8 md:px-16 pt-24 pb-4">
-      <CustomCursor />
-      <div className="max-w-[1440px] w-full">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Column - Text Content */}
-          <div className="space-y-8 order-2 lg:order-1">
-            <div className="space-y-4">
-              <motion.h1
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease: 'easeOut' }}
-                className="text-4xl md:text-7xl font-space font-bold"
-              >
-                <span
-                  style={{
-                    background: `linear-gradient(to right, hsl(var(--foreground)), hsl(var(--foreground) / 0.7))`,
-                    WebkitBackgroundClip: 'text',
-                    backgroundClip: 'text',
-                    color: 'transparent',
-                  }}
-                >
-                  Hi, I'm{' '}
-                </span>
-                <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
-                  Mugambi Lewis.
-                </span>
-              </motion.h1>
+    <div className="text-center group hover:scale-105 transition-transform duration-300">
+      <div className="flex items-center justify-center mb-2">
+        {Icon && <Icon className="w-8 h-8 text-primary mr-2" />}
+        <span className="text-3xl font-bold gradient-text">{count}+</span>
+      </div>
+      <p className="text-sm text-muted-foreground">{label}</p>
+    </div>
+  );
+};
 
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease: 'easeOut', delay: 0.2 }}
-                className="text-xl md:text-2xl text-foreground/70 font-inter max-w-2xl"
-              >
-                I design powerful digital experiences and engineer real-world solutions. Blending precision with creativity, I help brands and ideas stand out — online and beyond.
-              </motion.p>
+const HeroSection = () => {
+  return (
+    <section id="home" className="min-h-screen flex items-center relative overflow-hidden sm:pt-16 pt-24 ">
+      {/* Floating Particles */}
+      <div className="absolute inset-0 pointer-events-none">
+        {[...Array(15)].map((_, i) => (
+          <FloatingParticle key={i} delay={i * 0.5} />
+        ))}
+      </div>
+
+      {/* Background Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10" />
+
+      <div className="max-w-7xl mx-auto px-6 md:px-8 w-full">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          
+          {/* Left Content */}
+          <div className="space-y-8 animate-fade-in-up  order-2 lg:order-1">
+            <div className="space-y-4">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
+                Hi, I'm{' '}
+                <span className="gradient-text">
+                  Mugambi Lewis
+                </span>
+              </h1>
+              <p className="text-xl md:text-2xl text-muted-foreground">
+                Building the Future with{' '}
+                <span className="text-primary font-semibold">Engineering</span>,{' '}
+                <span className="text-primary font-semibold">Code</span> &{' '}
+                <span className="text-primary font-semibold">Design</span>
+              </p>
             </div>
 
             {/* Contact Info */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: 'easeOut', delay: 0.4 }}
-              className="space-y-2 text-foreground/60"
-            >
-              <p className="flex items-center gap-2 font-inter">
-                <Mail /> mugambilewis001@gmail.com
-              </p>
-              <p className="flex items-center gap-2 font-inter">
-                <Phone /> +254 794 644-395
-              </p>
-            </motion.div>
-
-            {/* Action Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: 'easeOut', delay: 0.6 }}
-              className="flex flex-col sm:flex-row gap-4"
-            >
-              <Button
-                onClick={() => scrollToSection('#projects')}
-                className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-medium px-8 py-6 text-lg rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl"
-              >
-                🚀 View My Work
-              </Button>
-              <Button
-                onClick={() => scrollToSection('#contact')}
-                variant="outline"
-                className="border-2 border-border/40 bg-background/60 backdrop-blur-sm hover:bg-accent/80 px-8 py-6 text-lg rounded-xl transition-all duration-300 hover:scale-105"
-              >
-                📩 Contact Me
-              </Button>
-            </motion.div>
-          </div>
-
-          {/* Right Column - Avatar */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, ease: 'easeOut', delay: 0.3 }}
-            className="flex justify-center lg:justify-end order-1 lg:order-2"
-          >
-            <div className="relative">
-              <div className="w-80 h-80 rounded-full bg-gradient-to-br from-blue-500/20 to-purple-600/20 flex items-center justify-center animate-glow">
-                <div className="w-72 h-72 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-6xl font-space font-bold">
-                  ML
-                </div>
+            <div className="space-y-3">
+              <div className="flex items-center space-x-3 text-muted-foreground">
+                <Mail className="w-5 h-5 text-primary" />
+                <span>mugambilewis001@gmail.com</span>
               </div>
-              {/* Floating elements */}
-              <div className="absolute -top-4 -right-4 w-8 h-8 bg-blue-400 rounded-full animate-float" />
-              <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-purple-400 rounded-full animate-float" style={{ animationDelay: '2s' }} />
+              <div className="flex items-center space-x-3 text-muted-foreground">
+                <Phone className="w-5 h-5 text-primary" />
+                <span>+254 794 644395</span>
+              </div>
             </div>
-          </motion.div>
-        </div>
 
-        {/* Stats Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: 'easeOut', delay: 0.8 }}
-          className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-4 text-center"
-        >
-          <div className="space-y-2">
-            <div className="text-3xl font-space font-bold text-blue-500">20+</div>
-            <div className="text-foreground/70">Projects Completed</div>
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button size="lg" className="glow-effect">
+                <a href="#projects">View My Work</a>
+              </Button>
+              <Button variant="outline" size="lg">
+                <a href="#contact">Contact Me</a>
+              </Button>
+            </div>
+
+            {/* Stats */}
+            <div className="grid grid-cols-3 gap-8 pt-8 border-t border-border">
+              <AnimatedCounter end={20} label="Projects" icon={Code} />
+              <AnimatedCounter end={10} label="Happy Clients" icon={Users} />
+              <AnimatedCounter end={3} label="Years Experience" icon={Star} />
+            </div>
           </div>
-          <div className="space-y-2">
-            <div className="text-3xl font-space font-bold text-purple-500">10+</div>
-            <div className="text-foreground/70">Happy Clients</div>
+
+          {/* Right Content - Avatar & Graphics */}
+          <div className="relative flex justify-center animate-slide-in-right order-1 lg:order-2">
+            <div className="relative">
+              {/* Main Avatar Container */}
+              <div className="w-72 h-72 lg:w-84 lg:h-84 relative">
+                {/* Glow Effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-accent/30 rounded-full blur-xl animate-glow-pulse" />
+                
+                {/* Avatar Image */}
+                <div className="relative w-full h-full rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center border-2 border-primary/30">
+                  <img
+                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
+                    alt="Mugambi Lewis"
+                    className="w-72 h-72 lg:w-76 lg:h-76 rounded-full object-cover"
+                  />
+                </div>
+
+                {/* Floating Icons */}
+   <div className="absolute -top-4 -right-4 w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center animate-bounce">
+  <Code className="w-6 h-6 text-primary" />
+</div>
+<div className="absolute -bottom-4 -left-4 w-12 h-12 bg-accent/20 rounded-full flex items-center justify-center animate-pulse">
+  <Star className="w-6 h-6 text-accent" />
+</div>
+<div className="absolute top-1/2 -right-8 w-10 h-10 bg-secondary/20 rounded-full flex items-center justify-center animate-spin">
+  <Users className="w-5 h-5 text-secondary" />
+</div>
+              </div>
+            </div>
           </div>
-          <div className="space-y-2">
-            <div className="text-3xl font-space font-bold text-blue-500">3+</div>
-            <div className="text-foreground/70">Years Experience</div>
-          </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
-}
+};
+
+export default HeroSection;
