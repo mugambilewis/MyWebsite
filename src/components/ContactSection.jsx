@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import emailjs from '@emailjs/browser'
-import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
+// Common shadcn/ui imports that need extensions:
+import { Button } from '../ui/Button.jsx'
+import { Card } from '../ui/Card.jsx'
+// etc.
+import { Textarea } from '@/components/ui/Textarea';
 import { useToast } from '@/hooks/use-toast';
 import { Mail, Phone, Linkedin, Github } from 'lucide-react';
 
