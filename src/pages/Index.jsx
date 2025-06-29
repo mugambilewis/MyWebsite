@@ -1,6 +1,6 @@
 import React from 'react';
 import { ThemeProvider } from '@/components/ThemeProvider';
-import { AnimatedBackground } from '@/components/AnimatedBackground';
+
 import { Navigation } from '@/components/Navigation';
 import  HeroSection  from '@/components/HeroSection';
 import { AboutSection } from '@/components/AboutSection';
@@ -15,7 +15,7 @@ const Index = () => {
   return (
     <ThemeProvider defaultTheme="system" storageKey="portfolio-theme">
       <div className="min-h-screen bg-background font-inter">
-        <AnimatedBackground />
+       
         <Navigation />
         <CustomCursor />
         <main>
