@@ -1,6 +1,7 @@
 
-import React from 'react';
-import { Button } from '@/components/ui/button';
+
+import { Button } from "@/components/ui/Button";
+
 import { ArrowUp, Linkedin, Github, Mail, Facebook } from 'lucide-react';
 
 export function Footer() {

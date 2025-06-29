@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Card } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+import { Card } from '@/components/ui/Card';
+import { Button } from "@/components/ui/Button";
 import { StaggeredReveal } from '@/components/StaggeredReveal';
 import { StaggeredItem } from '@/components/StaggeredItem';
 
