@@ -56,7 +56,7 @@ const AnimatedCounter = ({ end, label, icon: Icon }) => {
 
 const HeroSection = () => {
   return (
-    <section id="home" className="min-h-screen flex items-center relative overflow-hidden lg:pt-16 pt-22 ">
+    <section id="home" className="min-h-screen flex   px-8 md:px-16 items-center relative overflow-hidden lg:pt-16 pt-22 ">
       {/* Floating Particles */}
       <div className="absolute inset-0 pointer-events-none">
         {[...Array(15)].map((_, i) => (
@@ -67,7 +67,7 @@ const HeroSection = () => {
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10" />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-8 w-full">
+      <div className="max-w-[1440px] mx-auto ">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           
           {/* Left Content */}
