@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import emailjs from '@emailjs/browser'
 // Common shadcn/ui imports that need extensions:
-import { Button } from '../ui/Button.jsx'
-import { Card } from '../ui/Card.jsx'
+import { Button } from '@/components/ui/Button.jsx'
+import { Card } from '@/components/ui/Card.jsx'
 // etc.
 import { Textarea } from '@/components/ui/Textarea';
 import { useToast } from '@/hooks/use-toast';
