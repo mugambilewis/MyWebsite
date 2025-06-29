@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Card } from '@/components/ui/Card';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/Button';
 import { StaggeredReveal } from '@/components/StaggeredReveal';
 import { StaggeredItem } from '@/components/StaggeredItem';
 import { Link } from 'react-router-dom';
