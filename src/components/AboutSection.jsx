@@ -46,9 +46,11 @@ export function AboutSection() {
             <FadeInWhenVisible>
               <div className="text-center lg:text-left">
                 <div className="w-48 h-48 mx-auto lg:mx-0 rounded-full bg-gradient-to-br from-blue-500/20 to-purple-600/20 flex items-center justify-center mb-6">
-                  <div className="w-40 h-40 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-4xl font-space font-bold">
-                    ML
-                  </div>
+                  <img className="w-40 h-40 rounded-full flex items-center justify-center object-cover" 
+                    src="https://res.cloudinary.com/drq4idzdj/image/upload/v1751158413/_0167f670-210e-435f-9b1c-2a852f8eb6b8_uhszec.jpg"
+                    alt="Mugambi Lewis"
+                  />
+                   
                 </div>
                 <p className="text-lg text-foreground/80 leading-relaxed">
                   I'm a versatile creator at the intersection of Engineering, Design, and Technology. <br /><br />

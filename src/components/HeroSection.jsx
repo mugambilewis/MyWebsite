@@ -55,7 +55,7 @@ const AnimatedCounter = ({ end, label, icon: Icon }) => {
 
 const HeroSection = () => {
   return (
-    <section id="home" className="min-h-screen flex items-center relative overflow-hidden sm:pt-16 pt-24 ">
+    <section id="home" className="min-h-screen flex items-center relative overflow-hidden lg:pt-16 pt-22 ">
       {/* Floating Particles */}
       <div className="absolute inset-0 pointer-events-none">
         {[...Array(15)].map((_, i) => (
@@ -120,16 +120,16 @@ const HeroSection = () => {
           <div className="relative flex justify-center animate-slide-in-right order-1 lg:order-2">
             <div className="relative">
               {/* Main Avatar Container */}
-              <div className="w-72 h-72 lg:w-84 lg:h-84 relative">
+              <div className="w-72 h-72 lg:w-90 lg:h-90 relative">
                 {/* Glow Effect */}
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-accent/30 rounded-full blur-xl animate-glow-pulse" />
                 
                 {/* Avatar Image */}
                 <div className="relative w-full h-full rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center border-2 border-primary/30">
                   <img
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
+                    src="https://res.cloudinary.com/drq4idzdj/image/upload/v1751158402/_e7303a7f-2d68-4eee-935c-1fed60f32136_tqhnqf.jpg"
                     alt="Mugambi Lewis"
-                    className="w-72 h-72 lg:w-76 lg:h-76 rounded-full object-cover"
+                    className="w-72 h-72 lg:w-82 lg:h-82 rounded-full object-cover"
                   />
                 </div>
 
