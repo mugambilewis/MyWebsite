@@ -104,9 +104,16 @@ const HeroSection = () => {
               <Button size="lg" className="glow-effect">
                 <a href="#projects">View My Work</a>
               </Button>
-              <Button variant="outline" size="lg">
-                <a href="#contact">Contact Me</a>
+              <Button asChild variant="outline" size="lg">
+                <a
+                  href="https://wa.me/254794644395"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i className="fab fa-whatsapp mr-2"></i> Chat with me on WhatsApp
+                </a>
               </Button>
+
             </div>
 
             {/* Stats */}

@@ -28,12 +28,17 @@ export function Navigation() {
   ];
 
   const scrollToSection = (href) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      closeMenu();
-    }
-  };
+  const element = document.querySelector(href);
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+
+    // 👇 Add this to update the URL hash
+    window.history.pushState(null, '', href);
+
+    closeMenu();
+  }
+};
+
 
   return (
     <nav
