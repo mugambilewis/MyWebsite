@@ -5,6 +5,8 @@ import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/Button";
 
 import { Mail, Phone, Star, Users, Code  } from 'lucide-react';
+import { FaWhatsapp } from "react-icons/fa";
+import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 
 
 
@@ -42,6 +44,8 @@ const AnimatedCounter = ({ end, label, icon: Icon }) => {
 
     return () => clearInterval(timer);
   }, [end]);
+
+
 
   return (
     <div className="text-center group hover:scale-105 transition-transform duration-300">
@@ -100,22 +104,24 @@ const HeroSection = () => {
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="glow-effect">
-                <a href="#projects">View My Work</a>
+            
+            <div className="flex flex-col sm:flex-row gap-2">
+              <Button size="lg" className="glow-effect flex items-center space-x-2" as="a" href="#projects">
+                View My Work
+                <FaArrowUpRightFromSquare className="ml-2" />
               </Button>
-              <Button asChild variant="outline" size="lg">
-                <a
-                  href="https://wa.me/254794644395"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <i className="fab fa-whatsapp mr-2"></i> Chat with me on WhatsApp
-                </a>
+              <Button
+                size="lg"
+                className="glow-effect flex items-center"
+                as="a"
+                href="https://wa.me/+254794644395"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaWhatsapp className="mr-2" />Contact on WhatsApp
+                <FaArrowUpRightFromSquare className="ml-2" />
               </Button>
-
             </div>
-
             {/* Stats */}
             <div className="grid grid-cols-3 gap-8 pt-8 border-t border-border">
               <AnimatedCounter end={20} label="Projects" icon={Code} />
@@ -142,15 +148,15 @@ const HeroSection = () => {
                 </div>
 
                 {/* Floating Icons */}
-   <div className="absolute -top-4 -right-4 w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center animate-bounce">
-  <Code className="w-6 h-6 text-primary" />
-</div>
-<div className="absolute -bottom-4 -left-4 w-12 h-12 bg-accent/20 rounded-full flex items-center justify-center animate-pulse">
-  <Star className="w-6 h-6 text-accent" />
-</div>
-<div className="absolute top-1/2 -right-8 w-10 h-10 bg-secondary/20 rounded-full flex items-center justify-center animate-spin">
-  <Users className="w-5 h-5 text-secondary" />
-</div>
+                <div className="absolute -top-4 -right-4 w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center animate-bounce">
+                  <Code className="w-6 h-6 text-primary" />
+                </div>
+                <div className="absolute -bottom-4 -left-4 w-12 h-12 bg-accent/20 rounded-full flex items-center justify-center animate-pulse">
+                  <Star className="w-6 h-6 text-accent" />
+                </div>
+                <div className="absolute top-1/2 -right-8 w-10 h-10 bg-secondary/20 rounded-full flex items-center justify-center animate-spin">
+                  <Users className="w-5 h-5 text-secondary" />
+              </div>
               </div>
             </div>
           </div>
