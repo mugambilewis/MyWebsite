@@ -87,7 +87,7 @@ export function ProjectsSection() {
         </div>
 
         {/* Filter Buttons */}
-        {isExpanded && (
+        
           <div className="flex flex-wrap justify-center gap-4 mb-12">
             {filters.map((filterItem) => (
               <Button
@@ -103,7 +103,7 @@ export function ProjectsSection() {
               </Button>
             ))}
           </div>
-        )}
+        
 
         {/* ✅ Fix: Pass dynamic keyProp to StaggeredReveal */}
         <StaggeredReveal keyProp={`${isExpanded}-${filter}`}>
