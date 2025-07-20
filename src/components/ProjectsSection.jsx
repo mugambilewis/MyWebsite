@@ -119,41 +119,41 @@ export function ProjectsSection() {
                       className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      {project.link ? (
-                        <a
-                          href={project.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <Button
-                            size="sm"
-                            className="bg-white/20 backdrop-blur-sm border border-white/30 text-white hover:bg-white/30"
-                          >
-                            View Project →
-                          </Button>
-                        </a>
-                      ) : project.route ? (
-                        <Link to={project.route}>
-                          <Button
-                            size="sm"
-                            className="bg-white/20 backdrop-blur-sm border border-white/30 text-white hover:bg-white/30"
-                          >
-                            View Project →
-                          </Button>
-                        </Link>
-                      ) : (
-                        <Button
-                          size="sm"
-                          disabled
-                          className="bg-white/10 border border-white/20 text-white cursor-not-allowed"
-                        >
-                          View Project →
-                        </Button>
-                      )}
+                    <div className="absolute bottom-4 left-4 right-4 opacity-100 transition-opacity duration-300">
+  {project.link ? (
+    <a
+      href={project.link}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <Button
+        size="sm"
+        className="bg-blue-600/90 backdrop-blur-sm border border-blue-500 text-white hover:bg-blue-700 transition"
+      >
+        View Project →
+      </Button>
+    </a>
+  ) : project.route ? (
+    <Link to={project.route}>
+      <Button
+        size="sm"
+        className="bg-blue-600/90 backdrop-blur-sm border border-blue-500 text-white hover:bg-blue-700 transition"
+      >
+        View Project →
+      </Button>
+    </Link>
+  ) : (
+    <Button
+      size="sm"
+      disabled
+      className="bg-blue-400/50 border border-blue-300 text-white/70 cursor-not-allowed"
+    >
+      View Project →
+    </Button>
+  )}
+</div>
 
 
-                    </div>
                   </div>
 
                   <div className="p-6">
