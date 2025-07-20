@@ -15,7 +15,15 @@ export function ProjectsSection() {
       description: `CryptoTuma is a fast and secure crypto transfer platform built in collaboration with blockchain developers. It simplifies complex wallets with an intuitive, responsive UI and real-time performance powered by modern web technologies.`,
       tags: ['Web', 'React', 'NodeJS', 'CryptoPayments', 'NodeJS', 'MongoDB', 'Express'],
       category: 'Web',
-      image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&h=600&fit=crop',
+      image: '/Homepage.jpg',
+    },
+    {
+      title: 'DigiCore',
+      description: 'Health Tracker helps you monitor your daily habits, mood, hydration, and fitness—all in one clean, user-friendly dashboard. Start building a healthier lifestyle today.',
+      tags: ['Web', 'React', 'Tailwind', 'Animation'],
+      category: 'Web',
+      image: '/DigiCore homepage.png',
+      link: 'https://www.healthawarehub.com', // ← ✅ Add this
     },
     {
       title: 'Portable Solar Charger for E-Rickshaw',
