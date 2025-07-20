@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/Button";
-import { BlurInWhenVisible } from '@/components/BlurInWhenVisible';
+
 
 export function SkillsSection() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -41,21 +41,21 @@ export function SkillsSection() {
     <section id="skills" className="py-20 px-8 md:px-16">
       <div className="max-w-[1440px] mx-auto">
         <div className="text-center mb-12">
-          <BlurInWhenVisible>
+          
             <h2 className="text-4xl md:text-5xl font-space font-bold mb-4">Skills & Expertise</h2>
-          </BlurInWhenVisible>
-          <BlurInWhenVisible delay={0.1}>
+          
+         
             <p className="text-xl text-foreground/70 max-w-3xl mx-auto">
               I combine engineering expertise with creative and technical skills to deliver high-quality solutions. From mechanical systems to web development and visual design, I adapt to tools that bring ideas to life and solve real-world problems.
             </p>
-          </BlurInWhenVisible>
+          
         </div>
 
         {!isExpanded ? (
           // Preview Grid
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
-            {previewSkills.map((skill, index) => (
-              <BlurInWhenVisible key={index} delay={index * 0.1}>
+            {previewSkills.map((skill) => (
+             
                 <div className="group p-6 bg-background/60 backdrop-blur-sm rounded-xl border border-border/40 hover:shadow-lg transition-all duration-300 hover:scale-105 text-center">
                   <div className="text-3xl mb-3 group-hover:scale-110 transition-transform duration-300">
                     {skill.icon}
@@ -69,7 +69,7 @@ export function SkillsSection() {
                   </div>
                   <span className="text-xs text-foreground/60 mt-1 block">{skill.level}%</span>
                 </div>
-              </BlurInWhenVisible>
+             
             ))}
           </div>
         ) : (
@@ -77,14 +77,14 @@ export function SkillsSection() {
           <div className="space-y-12 animate-fade-in">
             {skillCategories.map((category, categoryIndex) => (
               <div key={categoryIndex}>
-                <BlurInWhenVisible>
+                
                   <h3 className="text-2xl font-space font-bold mb-6 text-center">
                     {category.category}
                   </h3>
-                </BlurInWhenVisible>
+                
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                  {category.skills.map((skill, skillIndex) => (
-                    <BlurInWhenVisible key={skillIndex} delay={skillIndex * 0.1}>
+                  {category.skills.map((skill) => (
+                   
                       <div className="group p-6 bg-background/60 backdrop-blur-sm rounded-xl border border-border/40 hover:shadow-lg transition-all duration-300 hover:scale-105 text-center">
                         <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
                           {skill.icon}
@@ -126,7 +126,7 @@ export function SkillsSection() {
                           </div>
                         </div>
                       </div>
-                    </BlurInWhenVisible>
+                   
                   ))}
                 </div>
               </div>
