@@ -19,11 +19,11 @@ export function ProjectsSection() {
     },
     {
       title: 'DigiCore',
-      description: 'Health Tracker helps you monitor your daily habits, mood, hydration, and fitness—all in one clean, user-friendly dashboard. Start building a healthier lifestyle today.',
-      tags: ['Web', 'React', 'Tailwind', 'Animation'],
+      description: 'DigiCore is a sleek eCommerce platform for digital electronics, built with React and Tailwind. It features secure auth, smooth checkout, and responsive animations—designed for a seamless shopping experience.',
+      tags: ['React', 'Tailwind', 'Node.js', 'E-Commerce', 'Animations'],
       category: 'Web',
       image: '/DigiCore homepage.png',
-      link: 'https://www.healthawarehub.com', // ← ✅ Add this
+      link: 'https://digitalcore-e-storefront.lovable.app', // ← ✅ Add this
     },
     {
       title: 'Portable Solar Charger for E-Rickshaw',
@@ -56,14 +56,7 @@ export function ProjectsSection() {
       category: 'Design',
       image: 'https://images.unsplash.com/photo-1493397212122-2b85dda8106b?w=800&h=600&fit=crop',
     },
-    {
-      title: 'HealthTracker',
-      description: 'Track health goals, habits, and progress with seamless modern UI.',
-      tags: ['Web', 'React', 'Tailwind', 'Animation'],
-      category: 'Web',
-      image: 'https://res.cloudinary.com/drq4idzdj/image/upload/v1750895103/HealthTackerhub_cbjhcw.png',
-      link: 'https://www.healthawarehub.com', // ← ✅ Add this
-    },
+  
 
     {
       title: 'Graphics Design',

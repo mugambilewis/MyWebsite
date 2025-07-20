@@ -146,13 +146,13 @@ const HeroSection = () => {
                 </div>
 
                 {/* Floating Icons */}
-                <div className="absolute -top-3 -right-3 w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center animate-bounce">
-                  <Code className="w-5 h-5 text-primary" />
+                <div className="absolute -top-3 -right-3 w-7 h-7 sm:w-9 sm:h-9 bg-primary/20 rounded-full flex items-center justify-center animate-bounce">
+                  <Code className="w-4 h-4 text-primary" />
                 </div>
-                <div className="absolute -bottom-3 -left-3 w-10 h-10 bg-accent/20 rounded-full flex items-center justify-center animate-pulse">
-                  <Star className="w-5 h-5 text-accent" />
+                <div className="absolute -bottom-3 -left-3   w-7 h-7 sm:w-9 sm:h-9 bg-accent/20 rounded-full flex items-center justify-center animate-pulse">
+                  <Star className="w-4 h-4 text-accent" />
                 </div>
-                <div className="absolute top-1/2 -right-5 w-9 h-9 bg-secondary/20 rounded-full flex items-center justify-center animate-spin">
+                <div className="absolute top-1/2 -right-5 w-7 h-7 sm:w-9 sm:h-9 bg-secondary/20 rounded-full flex items-center justify-center animate-spin">
                   <Users className="w-4 h-4 text-secondary" />
                 </div>
               </div>
