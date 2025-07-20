@@ -98,23 +98,28 @@ const HeroSection = () => {
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-2">
-              <Button size="lg" className="glow-effect flex items-center space-x-2" as="a" href="#projects">
-                View My Work
-                <FaArrowUpRightFromSquare className="ml-2" />
-              </Button>
-              <Button
-                size="lg"
-                className="glow-effect flex items-center"
-                as="a"
-                href="https://wa.me/+254794644395"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaWhatsapp className="mr-2" />Contact on WhatsApp
-                <FaArrowUpRightFromSquare className="ml-2" />
-              </Button>
-            </div>
+          <div className="flex flex-col sm:flex-row gap-2">
+  <a
+    href="#projects"
+    className="glow-effect px-6 py-3 text-lg rounded-lg bg-primary  flex items-center justify-center space-x-2 hover:bg-primary/80 transition border border-primary/20"
+  >
+    <span>View My Work</span>
+    <FaArrowUpRightFromSquare className="ml-2" />
+  </a>
+  
+  <a
+    href="https://wa.me/+254794644395"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="glow-effect px-6 py-3 text-lg rounded-lg bg-green-600 text-white flex items-center justify-center space-x-2 hover:bg-green-700 transition"
+  >
+    <FaWhatsapp className="mr-2" />
+    <span>Contact on WhatsApp</span>
+    <FaArrowUpRightFromSquare className="ml-2" />
+  </a>
+</div>
+
+
 
             {/* Stats */}
             <div className="grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 pt-8 border-t border-border">
