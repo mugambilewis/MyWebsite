@@ -16,6 +16,7 @@ export function ProjectsSection() {
       tags: ['Web', 'React', 'NodeJS', 'CryptoPayments', 'NodeJS', 'MongoDB', 'Express'],
       category: 'Web',
       image: '/Homepage.jpg',
+      link: 'https://cryptotuma.vercel.app/',
     },
     {
       title: 'DigiCore',
