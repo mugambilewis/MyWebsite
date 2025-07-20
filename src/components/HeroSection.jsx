@@ -1,14 +1,10 @@
-
 import React, { useState, useEffect } from 'react';
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/Button";
-
-import { Mail, Phone, Star, Users, Code  } from 'lucide-react';
+import { Mail, Phone, Star, Users, Code } from 'lucide-react';
 import { FaWhatsapp } from "react-icons/fa";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
-
-
 
 const FloatingParticle = ({ delay = 0 }) => {
   return (
@@ -45,8 +41,6 @@ const AnimatedCounter = ({ end, label, icon: Icon }) => {
     return () => clearInterval(timer);
   }, [end]);
 
-
-
   return (
     <div className="text-center group hover:scale-105 transition-transform duration-300">
       <div className="flex items-center justify-center mb-2">
@@ -60,7 +54,7 @@ const AnimatedCounter = ({ end, label, icon: Icon }) => {
 
 const HeroSection = () => {
   return (
-    <section id="home" className="min-h-screen flex   px-8 md:px-16 items-center relative overflow-hidden lg:pt-16 pt-22 ">
+    <section id="home" className="min-h-screen flex  px-8 md:px-16 items-center relative overflow-hidden lg:pt-16 pt-22">
       {/* Floating Particles */}
       <div className="absolute inset-0 pointer-events-none">
         {[...Array(15)].map((_, i) => (
@@ -71,11 +65,11 @@ const HeroSection = () => {
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10" />
 
-      <div className="max-w-[1440px] mx-auto ">
+      <div className="max-w-[1440px] mx-auto w-full">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           
           {/* Left Content */}
-          <div className="space-y-8 animate-fade-in-up  order-2 lg:order-1">
+          <div className="space-y-8 animate-fade-in-up order-2 lg:order-1">
             <div className="space-y-4">
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
                 Hi, I'm{' '}
@@ -104,7 +98,6 @@ const HeroSection = () => {
             </div>
 
             {/* CTA Buttons */}
-            
             <div className="flex flex-col sm:flex-row gap-2">
               <Button size="lg" className="glow-effect flex items-center space-x-2" as="a" href="#projects">
                 View My Work
@@ -122,8 +115,9 @@ const HeroSection = () => {
                 <FaArrowUpRightFromSquare className="ml-2" />
               </Button>
             </div>
+
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-8 pt-8 border-t border-border">
+            <div className="grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 pt-8 border-t border-border">
               <AnimatedCounter end={20} label="Projects" icon={Code} />
               <AnimatedCounter end={10} label="Happy Clients" icon={Users} />
               <AnimatedCounter end={3} label="Years Experience" icon={Star} />
@@ -131,32 +125,36 @@ const HeroSection = () => {
           </div>
 
           {/* Right Content - Avatar & Graphics */}
-          <div className="relative flex justify-center animate-slide-in-right order-1 lg:order-2">
+          <div className="relative flex justify-center lg:justify-end animate-slide-in-right order-1 lg:order-2">
             <div className="relative">
               {/* Main Avatar Container */}
-              <div className="w-72 h-72 lg:w-90 lg:h-90 relative">
+              <div className="w-72 h-72 lg:w-[28rem] lg:h-[28rem] relative mb-6 md:mb-0">
                 {/* Glow Effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-accent/30  blur-xl animate-glow-pulse" />
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-accent/30 blur-xl animate-glow-pulse" />
                 
                 {/* Avatar Image */}
-                <div className="relative w-full h-full  bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center border-2 border-primary/30">
+                <div className="relative w-72 h-84 lg:w-[25rem] lg:h-[28rem]">
+                  {/* Blue border behind */}
+                  <div className="relative top-2 right-2 w-full h-full bg-blue-500 rounded-lg"></div>
+                  
+                  {/* Foreground image */}
                   <img
                     src="https://res.cloudinary.com/drq4idzdj/image/upload/v1751158402/_e7303a7f-2d68-4eee-935c-1fed60f32136_tqhnqf.jpg"
                     alt="Mugambi Lewis"
-                    className="w-72 h-72 lg:w-82 lg:h-82  object-cover"
+                    className="absolute top-0 right-0 w-full h-full object-cover rounded-lg shadow-lg"
                   />
                 </div>
 
                 {/* Floating Icons */}
-                <div className="absolute -top-4 -right-4 w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center animate-bounce">
-                  <Code className="w-6 h-6 text-primary" />
+                <div className="absolute -top-3 -right-3 w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center animate-bounce">
+                  <Code className="w-5 h-5 text-primary" />
                 </div>
-                <div className="absolute -bottom-4 -left-4 w-12 h-12 bg-accent/20 rounded-full flex items-center justify-center animate-pulse">
-                  <Star className="w-6 h-6 text-accent" />
+                <div className="absolute -bottom-3 -left-3 w-10 h-10 bg-accent/20 rounded-full flex items-center justify-center animate-pulse">
+                  <Star className="w-5 h-5 text-accent" />
                 </div>
-                <div className="absolute top-1/2 -right-8 w-10 h-10 bg-secondary/20 rounded-full flex items-center justify-center animate-spin">
-                  <Users className="w-5 h-5 text-secondary" />
-              </div>
+                <div className="absolute top-1/2 -right-5 w-9 h-9 bg-secondary/20 rounded-full flex items-center justify-center animate-spin">
+                  <Users className="w-4 h-4 text-secondary" />
+                </div>
               </div>
             </div>
           </div>
