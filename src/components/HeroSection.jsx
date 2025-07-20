@@ -136,14 +136,14 @@ const HeroSection = () => {
               {/* Main Avatar Container */}
               <div className="w-72 h-72 lg:w-90 lg:h-90 relative">
                 {/* Glow Effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-accent/30 rounded-full blur-xl animate-glow-pulse" />
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-accent/30  blur-xl animate-glow-pulse" />
                 
                 {/* Avatar Image */}
-                <div className="relative w-full h-full rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center border-2 border-primary/30">
+                <div className="relative w-full h-full  bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center border-2 border-primary/30">
                   <img
                     src="https://res.cloudinary.com/drq4idzdj/image/upload/v1751158402/_e7303a7f-2d68-4eee-935c-1fed60f32136_tqhnqf.jpg"
                     alt="Mugambi Lewis"
-                    className="w-72 h-72 lg:w-82 lg:h-82 rounded-full object-cover"
+                    className="w-72 h-72 lg:w-82 lg:h-82  object-cover"
                   />
                 </div>
 

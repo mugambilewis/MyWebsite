@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button } from "@/components/ui/Button";
 
 import { Card } from '@/components/ui/Card';
-import { FadeInWhenVisible } from '@/components/FadeInWhenVisible';
+
 
 export function AboutSection() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -30,21 +30,21 @@ export function AboutSection() {
       <div className="max-w-[1440px] mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <FadeInWhenVisible>
+          
             <h2 className="text-4xl md:text-5xl font-space font-bold mb-4">About Me</h2>
-          </FadeInWhenVisible>
-          <FadeInWhenVisible delay={0.1}>
+          
+          
             <p className="text-xl text-foreground/70 max-w-3xl mx-auto">
               I’m Mugambi Lewis — a Mechanical Engineer with a creative edge in Web Development and Graphic Design. I solve real-world problems through engineering precision and digital innovation.
             </p>
-          </FadeInWhenVisible>
+          
         </div>
 
         {/* Expandable Section */}
         <div className={`transition-all duration-500 ${isExpanded ? 'max-h-none' : 'max-h-96 overflow-hidden'}`}>
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-12">
             {/* Avatar & Intro */}
-            <FadeInWhenVisible>
+            
               <div className="text-center lg:text-left">
                 <div className="w-48 h-48 mx-auto lg:mx-0 rounded-full bg-gradient-to-br from-blue-500/20 to-purple-600/20 flex items-center justify-center mb-6">
                   <img className="w-40 h-40 rounded-full flex items-center justify-center object-cover" 
@@ -61,12 +61,12 @@ export function AboutSection() {
                   I believe in solutions that perform — whether they run on code, energy, or ideas.
                 </p>
               </div>
-            </FadeInWhenVisible>
+            
 
             {/* Expertise Cards */}
             <div className="space-y-6">
-              {expertiseAreas.map((area, index) => (
-                <FadeInWhenVisible key={index} delay={index * 0.1}>
+              {expertiseAreas.map((area) => (
+               
                   <Card className="p-6 bg-background/60 backdrop-blur-sm border-border/40 hover:shadow-lg transition-all duration-300 hover:scale-105">
                     <div className="flex items-center space-x-4">
                       <div className="text-3xl">{area.icon}</div>
@@ -76,7 +76,7 @@ export function AboutSection() {
                       </div>
                     </div>
                   </Card>
-                </FadeInWhenVisible>
+               
               ))}
             </div>
           </div>
@@ -84,11 +84,11 @@ export function AboutSection() {
           {/* Expanded Timeline */}
           {isExpanded && (
             <div className="space-y-12 animate-fade-in">
-              <FadeInWhenVisible>
+              
                 <h3 className="text-2xl font-space font-bold mb-8 text-center">Education & Certifications</h3>
-              </FadeInWhenVisible>
+              
 
-              <FadeInWhenVisible delay={0.1}>
+              
                 <div className="flex items-center space-x-6 p-6 bg-background/60 backdrop-blur-sm rounded-xl border border-border/40">
                   <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold">
                     🎓
@@ -98,9 +98,9 @@ export function AboutSection() {
                     <p className="text-foreground/70">Murang'a University of Technology • 2021–2025</p>
                   </div>
                 </div>
-              </FadeInWhenVisible>
+             
 
-              <FadeInWhenVisible delay={0.2}>
+              
                 <div className="flex items-center space-x-6 p-6 bg-background/60 backdrop-blur-sm rounded-xl border border-border/40">
                   <div className="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold">
                     🏆
@@ -110,7 +110,7 @@ export function AboutSection() {
                     <p className="text-foreground/70">FreeCodeCamp • 2023–Present</p>
                   </div>
                 </div>
-              </FadeInWhenVisible>
+             
             </div>
           )}
         </div>
