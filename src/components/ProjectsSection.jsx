@@ -129,7 +129,7 @@ export function ProjectsSection() {
     >
       <Button
         size="sm"
-        className="bg-blue-600/90 backdrop-blur-sm border border-blue-500 text-white hover:bg-blue-700 transition"
+        className="bg-blue-600/30 backdrop-blur-sm border border-blue-500 text-white hover:bg-blue-700 transition"
       >
         View Project →
       </Button>

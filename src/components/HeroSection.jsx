@@ -123,9 +123,9 @@ const HeroSection = () => {
 
             {/* Stats */}
             <div className="grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 pt-8 border-t border-border">
-              <AnimatedCounter end={20} label="Projects" icon={Code} />
-              <AnimatedCounter end={10} label="Happy Clients" icon={Users} />
-              <AnimatedCounter end={3} label="Years Experience" icon={Star} />
+              <AnimatedCounter end={80} label="Projects" icon={Code} />
+              <AnimatedCounter end={30} label="Happy Clients" icon={Users} />
+              <AnimatedCounter end={4} label="Years Experience" icon={Star} />
             </div>
           </div>
 

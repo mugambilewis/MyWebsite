@@ -6,6 +6,7 @@ import { StaggeredItem } from '@/components/StaggeredItem';
 
 export function ServicesSection() {
   const [expandedIndex, setExpandedIndex] = useState(null); // 👈 track individual card
+  const [showAll, setShowAll] = useState(false); // 👈 track visibility of all cards
 
   const services = [
     {
@@ -34,6 +35,8 @@ export function ServicesSection() {
     },
   ];
 
+  const visibleServices = showAll ? services : services.slice(0, 3);
+
   return (
     <section id="services" className="py-20 px-8 md:px-16" style={{ backgroundColor: 'hsl(var(--muted)/0.3)' }}>
       <div className="max-w-[1440px] mx-auto">
@@ -46,7 +49,7 @@ export function ServicesSection() {
 
         <StaggeredReveal keyProp={expandedIndex ?? 'collapsed'}>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => {
+            {visibleServices.map((service, index) => {
               const isOpen = expandedIndex === index;
 
               return (
@@ -91,6 +94,18 @@ export function ServicesSection() {
             })}
           </div>
         </StaggeredReveal>
+
+        {!showAll && (
+          <div className="text-center mt-12">
+            <Button
+              variant="outline"
+              className="px-8 py-3 text-lg"
+              onClick={() => setShowAll(true)}
+            >
+              See More Services →
+            </Button>
+          </div>
+        )}
       </div>
     </section>
   );
