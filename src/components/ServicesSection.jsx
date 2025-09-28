@@ -8,32 +8,57 @@ export function ServicesSection() {
   const [expandedIndex, setExpandedIndex] = useState(null); // 👈 track individual card
   const [showAll, setShowAll] = useState(false); // 👈 track visibility of all cards
 
-  const services = [
+    const services = [
+    {
+      title: 'Mechanical Engineering Solutions',
+      description: 'I provide precise and innovative engineering services, from concept to functional prototypes, supported by strong technical documentation and visualization.',
+      icon: '⚙️',
+      features: [
+        'Product Design & Prototyping',
+        '2D/3D CAD Drafting (SolidWorks, AutoCAD)',
+        'Simulation & Motion Analysis',
+        'Manufacturing Support & Technical Drawings',
+        'Engineering Visualization & Rendering',
+      ],
+    },
     {
       title: 'Web Development',
-      description: 'I design and develop responsive, fast, and SEO-friendly websites that help businesses, creatives, and startups build strong online identities.',
+      description: 'I design and develop responsive, fast, and SEO-friendly websites that help engineers, businesses, and startups build strong online identities.',
       icon: '🌐',
-      features: ['Portfolio & Business Websites', 'Landing Pages & Campaign Sites', 'API Integration', 'Performance Optimization'],
+      features: [
+        'Portfolio & Business Websites',
+        'Landing Pages & Campaign Sites',
+        'API Integration',
+        'Performance Optimization',
+        'Engineering Dashboards & Data Visualization',
+      ],
     },
     {
       title: 'UI/UX & Branding',
-      description: 'I craft bold, clean, and memorable visuals that elevate your brand and communicate clearly across digital platforms.',
+      description: 'I craft bold, clean, and memorable visuals that elevate your brand and communicate clearly across digital and technical platforms.',
       icon: '🎨',
-      features: ['Logo & Brand Identity Design', 'Social Media Graphics', 'Ad & Promo Designs', 'UI/UX Visual Assets'],
+      features: [
+        'Logo & Brand Identity Design',
+        'UI/UX Visual Assets',
+        'Social Media Graphics',
+        'Engineering Presentation Decks',
+        'Ad & Promo Designs',
+      ],
     },
     {
-      title: 'Mechanical Engineering Solutions',
-      description: 'From technical designs to sustainable systems, I provide engineering services that are precise, efficient, and built for real-world performance.',
-      icon: '⚙️',
-      features: ['Product Design & Prototyping', 'Solar & Energy System Concepts', '2D/3D CAD Drafting & Simulations', 'Technical Documentation'],
-    },
-    {
-      title: 'Digital Content',
-      description: 'Strategic creation and digital presence optimization.',
+      title: 'Digital Content & Visualization',
+      description: 'Strategic creation of digital assets and visualizations that make ideas and products stand out.',
       icon: '📱',
-      features: ['Beautiful Carousels', 'Social Media', 'Digital Media', 'Flyer Design'],
+      features: [
+        '3D Renders & Animations',
+        'Product Visualization for Marketing',
+        'Social Media Content',
+        'Technical Infographics & Carousels',
+        'Flyer & Digital Media Design',
+      ],
     },
   ];
+
 
   const visibleServices = showAll ? services : services.slice(0, 3);
 
