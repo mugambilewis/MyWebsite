@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Footer } from '@/components/Footer';
 import { Navigation } from '@/components/Navigation';
 
+
 const GraphicsShowcase = () => {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -86,8 +87,9 @@ const GraphicsShowcase = () => {
 
       {/* Optional Overlay */}
       <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-background/5 via-transparent to-background/5" />
-      <Footer />
+    <Footer />
     </div>
+      
   );
 };
 

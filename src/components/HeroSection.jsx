@@ -71,17 +71,17 @@ const HeroSection = () => {
           {/* Left Content */}
           <div className="space-y-8 animate-fade-in-up order-2 lg:order-1">
             <div className="space-y-4">
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
                 Hi, I'm{' '}
                 <span className="gradient-text">
                   Mugambi Lewis
                 </span>
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground">
-                Building the Future with{' '}
-                <span className="text-primary font-semibold">Engineering</span>,{' '}
-                <span className="text-primary font-semibold">Code</span> &{' '}
-                <span className="text-primary font-semibold">Design</span>
+                Building Tomorrow’s Innovations through{' '}
+                <span className="text-primary font-semibold">Mechanical Engineering</span>,{' '}
+                <span className="text-primary font-semibold">powered by Code</span> &{' '}
+                <span className="text-primary font-semibold">and refined with Design.</span>
               </p>
             </div>
 

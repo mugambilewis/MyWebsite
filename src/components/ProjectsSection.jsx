@@ -24,7 +24,7 @@ export function ProjectsSection() {
       tags: ['React', 'Tailwind', 'Node.js', 'E-Commerce', 'Animations'],
       category: 'Web',
       image: '/DigiCore homepage.png',
-      link: 'https://digitalcore-e-storefront.lovable.app', // ← ✅ Add this
+      link: 'https://digitalcore-e-storefront.lovable.app',
     },
     {
       title: 'Portable Solar Charger for E-Rickshaw',
@@ -32,7 +32,7 @@ export function ProjectsSection() {
       tags: ['Engineering', 'Solar Energy', 'Solidworks', 'Proteus', 'Hardware Design'],
       category: 'Engineering',
       image: 'https://res.cloudinary.com/drq4idzdj/image/upload/v1750896880/pexels-kindelmedia-9799700_wycvfj.jpg',
-      link: 'https://www.productprototype.com', // ← ✅ Add this
+      link: 'https://www.productprototype.com',
     },
     {
       title: 'HealthTracker',
@@ -40,7 +40,7 @@ export function ProjectsSection() {
       tags: ['Web', 'React', 'Tailwind', 'Animation'],
       category: 'Web',
       image: 'https://res.cloudinary.com/drq4idzdj/image/upload/v1750895103/HealthTackerhub_cbjhcw.png',
-      link: 'https://www.healthawarehub.com', // ← ✅ Add this
+      link: 'https://www.healthawarehub.com',
     },
     {
       title: '🚗 ModuFlex Suspension System',
@@ -65,18 +65,20 @@ export function ProjectsSection() {
       tags: ['Design', 'Mobile', 'UI/UX', 'Figma'],
       category: 'Design',
       image: 'https://res.cloudinary.com/drq4idzdj/image/upload/v1750977453/pexels-shkrabaanthony-4348401_cwdnzq.jpg',
-      route: '/projects/GraphicsShowcase', // ← ✅ Add this
+      route: '/projects/GraphicsShowcase',
     },
   ];
 
   const filters = ['All', 'Web', 'Engineering', 'Design'];
-  const previewProjects = projects.slice(0, 3);
+  // Removed unused variable previewProjects
 
-  const filteredProjects = isExpanded
-    ? filter === 'All'
-      ? projects
-      : projects.filter((project) => project.category === filter)
-    : previewProjects;
+  const filteredProjects = (() => {
+    const filtered = filter === 'All' 
+      ? projects 
+      : projects.filter((project) => project.category === filter);
+    
+    return isExpanded ? filtered : filtered.slice(0, 3);
+  })();
 
   return (
     <section id="projects" className="py-20 px-8 md:px-16">
