@@ -144,7 +144,7 @@ const HeroSection = () => {
                   
                   {/* Foreground image */}
                   <img
-                    src="https://res.cloudinary.com/drq4idzdj/image/upload/v1751158402/_e7303a7f-2d68-4eee-935c-1fed60f32136_tqhnqf.jpg"
+                    src="/Hero profile.jpg"
                     alt="Mugambi Lewis"
                     className="absolute top-0 right-0 w-full h-full object-cover rounded-lg shadow-lg"
                   />
