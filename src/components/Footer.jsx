@@ -17,7 +17,7 @@ export function Footer() {
   ];
 
   const socialLinks = [
-    { icon: Linkedin, href: 'https://www.linkedin.com/in/mugambi-lewis-64051332b/', label: 'LinkedIn' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/mugambi-lewis/', label: 'LinkedIn' },
     { icon: Github, href: 'https://github.com/mugambilewis', label: 'GitHub' },
     { icon: Mail, href: 'mailto:mugambilewis001@gmail.com', label: 'Email' },
     { icon: Facebook, href: 'https://www.facebook.com/mugambi.lewis.7', label: 'Facebook' },

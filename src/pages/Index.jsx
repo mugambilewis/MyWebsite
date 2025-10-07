@@ -10,6 +10,8 @@ import { ProjectsSection } from '@/components/ProjectsSection';
 import { ContactSection } from '@/components/ContactSection';
 import { Footer } from '@/components/Footer';
 import CustomCursor from '@/components/CustomCursor';
+import { TestimonialsSection } from '@/components/TestimonialsSection';
+import { FAQsSection} from '@/components/FAQsSection';
 
 const Index = () => {
   return (
@@ -26,6 +28,8 @@ const Index = () => {
           <ServicesSection />
           <ProjectsSection />
           <ContactSection />
+          <TestimonialsSection />
+          <FAQsSection />
         </main>
         <Footer />
       </div>
