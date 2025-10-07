@@ -129,7 +129,7 @@ export function ContactSection() {
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-medium py-6 text-lg rounded-xl transition-all duration-300 hover:scale-105 disabled:hover:scale-100"
+                className="w-full bg-blue-600 hover:from-blue-700 text-white font-medium py-6 text-lg rounded-xl transition-all duration-300 hover:scale-105 disabled:hover:scale-100"
               >
                 {isSubmitting ? (
                   <div className="flex items-center space-x-2">

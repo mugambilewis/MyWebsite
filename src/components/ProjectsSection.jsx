@@ -97,7 +97,7 @@ export function ProjectsSection() {
                 onClick={() => setFilter(filterItem)}
                 variant={filter === filterItem ? 'default' : 'outline'}
                 className={`px-6 py-2 rounded-full transition-all duration-300 ${filter === filterItem
-                    ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white'
+                    ? 'bg-blue-600 text-white'
                     : 'border-border/40 bg-background/60 backdrop-blur-sm hover:bg-accent/80'
                   }`}
               >

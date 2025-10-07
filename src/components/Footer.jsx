@@ -41,7 +41,7 @@ export function Footer() {
           {/* Left Column - Brand */}
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center font-space font-bold text-white">
+              <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center font-space font-bold text-white">
                 ML
               </div>
               <span className="text-xl font-space font-bold">Mugambi Lewis</span>
