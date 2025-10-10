@@ -3,6 +3,7 @@ import { Card } from '@/components/ui/Card';
 import { Button } from "@/components/ui/Button";
 import { StaggeredReveal } from '@/components/StaggeredReveal';
 import { StaggeredItem } from '@/components/StaggeredItem';
+import { ScrollReveal, StaggeredReveal as AdvancedStaggeredReveal, MagneticHover } from '@/components/ScrollAnimations';
 
 export function ServicesSection() {
   const [expandedIndex, setExpandedIndex] = useState(null); // 👈 track individual card
@@ -66,10 +67,14 @@ export function ServicesSection() {
     <section id="services" className="py-20 px-8 md:px-16" style={{ backgroundColor: 'hsl(var(--muted)/0.3)' }}>
       <div className="max-w-[1440px] mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-space font-bold mb-4">Services</h2>
-          <p className="text-xl text-foreground/70 max-w-3xl mx-auto">
-            Comprehensive solutions from concept to completion
-          </p>
+          <ScrollReveal direction="up" delay={0.2}>
+            <h2 className="text-4xl md:text-5xl font-space font-bold mb-4">Services</h2>
+          </ScrollReveal>
+          <ScrollReveal direction="up" delay={0.4}>
+            <p className="text-xl text-foreground/70 max-w-3xl mx-auto">
+              Comprehensive solutions from concept to completion
+            </p>
+          </ScrollReveal>
         </div>
 
         <StaggeredReveal keyProp={expandedIndex ?? 'collapsed'}>
@@ -79,41 +84,53 @@ export function ServicesSection() {
 
               return (
                 <StaggeredItem key={index}>
-                  <Card className="group p-8 bg-background/60 backdrop-blur-sm border-border/40 hover:shadow-xl transition-all duration-500 hover:scale-105 hover:-translate-y-2">
-                    <div className="text-center">
-                      <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300">
-                        {service.icon}
-                      </div>
-                      <h3 className="text-2xl font-space font-bold mb-4">{service.title}</h3>
-                      <p className="text-foreground/70 mb-6 leading-relaxed">
-                        {service.description}
-                      </p>
+                  <MagneticHover intensity={0.1}>
+                    <Card className="group p-8 bg-background/60 backdrop-blur-sm border-border/40 hover:shadow-xl transition-all duration-500 hover:scale-105 hover:-translate-y-2">
+                      <div className="text-center">
+                        <ScrollReveal direction="scale" delay={index * 0.1}>
+                          <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                            {service.icon}
+                          </div>
+                        </ScrollReveal>
+                        <ScrollReveal direction="up" delay={index * 0.1 + 0.1}>
+                          <h3 className="text-2xl font-space font-bold mb-4">{service.title}</h3>
+                        </ScrollReveal>
+                        <ScrollReveal direction="up" delay={index * 0.1 + 0.2}>
+                          <p className="text-foreground/70 mb-6 leading-relaxed">
+                            {service.description}
+                          </p>
+                        </ScrollReveal>
 
-                      {isOpen && (
-                        <div className="space-y-3 animate-fade-in">
-                          <h4 className="font-semibold text-left mb-3">What's Included:</h4>
-                          <ul className="space-y-2 text-left">
-                            {service.features.map((feature, featureIndex) => (
-                              <li key={featureIndex} className="flex items-center space-x-2">
-                                <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full" />
-                                <span className="text-sm text-foreground/80">{feature}</span>
-                              </li>
-                            ))}
-                          </ul>
+                        {isOpen && (
+                          <ScrollReveal direction="up" delay={0.1}>
+                            <div className="space-y-3 animate-fade-in">
+                              <h4 className="font-semibold text-left mb-3">What's Included:</h4>
+                              <ul className="space-y-2 text-left">
+                                {service.features.map((feature, featureIndex) => (
+                                  <li key={featureIndex} className="flex items-center space-x-2">
+                                    <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full" />
+                                    <span className="text-sm text-foreground/80">{feature}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          </ScrollReveal>
+                        )}
+
+                        <div className="mt-6 pt-6 border-t border-border/40">
+                          <MagneticHover intensity={0.2}>
+                            <Button
+                              variant="ghost"
+                              className="text-blue-500 hover:text-blue-600 font-medium"
+                              onClick={() => setExpandedIndex(isOpen ? null : index)} // 👈 Toggle only this card
+                            >
+                              {isOpen ? 'Show Less' : 'Learn More →'}
+                            </Button>
+                          </MagneticHover>
                         </div>
-                      )}
-
-                      <div className="mt-6 pt-6 border-t border-border/40">
-                        <Button
-                          variant="ghost"
-                          className="text-blue-500 hover:text-blue-600 font-medium"
-                          onClick={() => setExpandedIndex(isOpen ? null : index)} // 👈 Toggle only this card
-                        >
-                          {isOpen ? 'Show Less' : 'Learn More →'}
-                        </Button>
                       </div>
-                    </div>
-                  </Card>
+                    </Card>
+                  </MagneticHover>
                 </StaggeredItem>
               );
             })}
@@ -121,15 +138,19 @@ export function ServicesSection() {
         </StaggeredReveal>
 
         {!showAll && (
-          <div className="text-center mt-12">
-            <Button
-              variant="outline"
-              className="px-8 py-3 text-lg"
-              onClick={() => setShowAll(true)}
-            >
-              See More Services →
-            </Button>
-          </div>
+          <ScrollReveal direction="up" delay={0.6}>
+            <div className="text-center mt-12">
+              <MagneticHover>
+                <Button
+                  variant="outline"
+                  className="px-8 py-3 text-lg"
+                  onClick={() => setShowAll(true)}
+                >
+                  See More Services →
+                </Button>
+              </MagneticHover>
+            </div>
+          </ScrollReveal>
         )}
       </div>
     </section>

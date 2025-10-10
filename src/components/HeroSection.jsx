@@ -71,62 +71,62 @@ const HeroSection = () => {
           {/* Left Content */}
           <div className="space-y-8 animate-fade-in-up order-2 lg:order-1">
             <div className="space-y-4">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                Hi, I'm{' '}
-                <span className="gradient-text">
-                  Mugambi Lewis
-                </span>
-              </h1>
-              <p className="text-xl md:text-2xl text-muted-foreground">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                  Hi, I'm{' '}
+                  <span className="gradient-text">
+                    Mugambi Lewis
+                  </span>
+                </h1>
+                <p className="text-xl md:text-2xl text-muted-foreground">
                 Building Tomorrow’s Innovations through{' '}
-                <span className="text-primary font-semibold">Mechanical Engineering</span>,{' '}
-                <span className="text-primary font-semibold">powered by Code</span> &{' '}
-                <span className="text-primary font-semibold">and refined with Design.</span>
-              </p>
+                  <span className="text-primary font-semibold">Mechanical Engineering</span>,{' '}
+                  <span className="text-primary font-semibold">powered by Code</span> &{' '}
+                  <span className="text-primary font-semibold">and refined with Design.</span>
+                </p>
             </div>
 
             {/* Contact Info */}
-            <div className="space-y-3">
-              <div className="flex items-center space-x-3 text-muted-foreground">
-                <Mail className="w-5 h-5 text-primary" />
-                <span>mugambilewis001@gmail.com</span>
+              <div className="space-y-3">
+                <div className="flex items-center space-x-3 text-muted-foreground">
+                  <Mail className="w-5 h-5 text-primary" />
+                  <span>mugambilewis001@gmail.com</span>
+                </div>
+                <div className="flex items-center space-x-3 text-muted-foreground">
+                  <Phone className="w-5 h-5 text-primary" />
+                  <span>+254 794 644395</span>
+                </div>
               </div>
-              <div className="flex items-center space-x-3 text-muted-foreground">
-                <Phone className="w-5 h-5 text-primary" />
-                <span>+254 794 644395</span>
-              </div>
-            </div>
 
             {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-2">
-  <a
-    href="#projects"
+              <div className="flex flex-col sm:flex-row gap-2">
+                  <a
+                    href="#projects"
     className="glow-effect px-6 py-3 text-lg rounded-lg bg-primary  flex items-center justify-center space-x-2 hover:bg-primary/80 transition border border-primary/20"
-  >
-    <span>View My Work</span>
-    <FaArrowUpRightFromSquare className="ml-2" />
-  </a>
-  
-  <a
-    href="https://wa.me/+254794644395"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="glow-effect px-6 py-3 text-lg rounded-lg bg-green-600 text-white flex items-center justify-center space-x-2 hover:bg-green-700 transition"
-  >
-    <FaWhatsapp className="mr-2" />
-    <span>Contact on WhatsApp</span>
-    <FaArrowUpRightFromSquare className="ml-2" />
-  </a>
-</div>
+                  >
+                    <span>View My Work</span>
+                    <FaArrowUpRightFromSquare className="ml-2" />
+                  </a>
+                
+                  <a
+                    href="https://wa.me/+254794644395"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="glow-effect px-6 py-3 text-lg rounded-lg bg-green-600 text-white flex items-center justify-center space-x-2 hover:bg-green-700 transition"
+                  >
+                    <FaWhatsapp className="mr-2" />
+                    <span>Contact on WhatsApp</span>
+                    <FaArrowUpRightFromSquare className="ml-2" />
+                  </a>
+              </div>
 
 
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 pt-8 border-t border-border">
-              <AnimatedCounter end={80} label="Projects" icon={Code} />
-              <AnimatedCounter end={30} label="Happy Clients" icon={Users} />
-              <AnimatedCounter end={4} label="Years Experience" icon={Star} />
-            </div>
+              <div className="grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 pt-8 border-t border-border">
+                <AnimatedCounter end={80} label="Projects" icon={Code} />
+                <AnimatedCounter end={30} label="Happy Clients" icon={Users} />
+                <AnimatedCounter end={4} label="Years Experience" icon={Star} />
+              </div>
           </div>
 
           {/* Right Content - Avatar & Graphics */}
@@ -135,31 +135,31 @@ const HeroSection = () => {
               {/* Main Avatar Container */}
               <div className="w-72 h-72 lg:w-[28rem] lg:h-[28rem] relative mb-6 md:mb-0">
                 {/* Glow Effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-accent/30 blur-xl animate-glow-pulse" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-accent/30 blur-xl animate-glow-pulse" />
                 
                 {/* Avatar Image */}
-                <div className="relative w-72 h-84 lg:w-[25rem] lg:h-[28rem]">
-                  {/* Blue border behind */}
-                  <div className="relative top-2 right-2 w-full h-full bg-blue-500 rounded-lg"></div>
-                  
-                  {/* Foreground image */}
-                  <img
-                    src="/Hero profile.jpg"
-                    alt="Mugambi Lewis"
-                    className="absolute top-0 right-0 w-full h-full object-cover rounded-lg shadow-lg"
-                  />
-                </div>
+                  <div className="relative w-72 h-84 lg:w-[25rem] lg:h-[28rem]">
+                    {/* Blue border behind */}
+                    <div className="relative top-2 right-2 w-full h-full bg-blue-500 rounded-lg"></div>
+                    
+                    {/* Foreground image */}
+                    <img
+                      src="/Hero profile.jpg"
+                      alt="Mugambi Lewis"
+                      className="absolute top-0 right-0 w-full h-full object-cover rounded-lg shadow-lg"
+                    />
+                  </div>
 
                 {/* Floating Icons */}
-                <div className="absolute -top-3 -right-3 w-7 h-7 sm:w-9 sm:h-9 bg-primary/20 rounded-full flex items-center justify-center animate-bounce">
-                  <Code className="w-4 h-4 text-primary" />
-                </div>
+                  <div className="absolute -top-3 -right-3 w-7 h-7 sm:w-9 sm:h-9 bg-primary/20 rounded-full flex items-center justify-center animate-bounce">
+                    <Code className="w-4 h-4 text-primary" />
+                  </div>
                 <div className="absolute -bottom-3 -left-3   w-7 h-7 sm:w-9 sm:h-9 bg-accent/20 rounded-full flex items-center justify-center animate-pulse">
-                  <Star className="w-4 h-4 text-accent" />
-                </div>
-                <div className="absolute top-1/2 -right-5 w-7 h-7 sm:w-9 sm:h-9 bg-secondary/20 rounded-full flex items-center justify-center animate-spin">
-                  <Users className="w-4 h-4 text-secondary" />
-                </div>
+                    <Star className="w-4 h-4 text-accent" />
+                  </div>
+                  <div className="absolute top-1/2 -right-5 w-7 h-7 sm:w-9 sm:h-9 bg-secondary/20 rounded-full flex items-center justify-center animate-spin">
+                    <Users className="w-4 h-4 text-secondary" />
+                  </div>
               </div>
             </div>
           </div>

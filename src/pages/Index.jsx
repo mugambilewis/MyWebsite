@@ -12,27 +12,31 @@ import { Footer } from '@/components/Footer';
 import CustomCursor from '@/components/CustomCursor';
 import { TestimonialsSection } from '@/components/TestimonialsSection';
 import { FAQsSection} from '@/components/FAQsSection';
+import { SmoothScrollProvider, ScrollProgressIndicator } from '@/components/SmoothScroll';
+import { ScrollToTop } from '@/components/ScrollProgressBar';
 
 const Index = () => {
   return (
     <ThemeProvider defaultTheme="system" storageKey="portfolio-theme">
-      <div className="min-h-screen bg-background font-inter">
-       
-        <Navigation />
-        <CustomCursor />
-        <main>
-          
-          <HeroSection />
-          <AboutSection />
-          <SkillsSection />
-          <ServicesSection />
-          <ProjectsSection />
-          <ContactSection />
-          <TestimonialsSection />
-          <FAQsSection />
-        </main>
-        <Footer />
-      </div>
+      <SmoothScrollProvider>
+        <div className="min-h-screen bg-background font-inter">
+          <ScrollProgressIndicator />
+          <Navigation />
+          <CustomCursor />
+          <main>
+            <HeroSection />
+            <AboutSection />
+            <SkillsSection />
+            <ServicesSection />
+            <ProjectsSection />
+            <ContactSection />
+            <TestimonialsSection />
+            <FAQsSection />
+          </main>
+          <Footer />
+          <ScrollToTop />
+        </div>
+      </SmoothScrollProvider>
     </ThemeProvider>
   );
 };

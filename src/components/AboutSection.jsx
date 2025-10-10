@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/Button";
-
 import { Card } from '@/components/ui/Card';
+import { ScrollReveal, MagneticHover } from '@/components/ScrollAnimations';
 
 
 export function AboutSection() {
@@ -30,55 +30,65 @@ export function AboutSection() {
       <div className="max-w-[1440px] mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          
+          <ScrollReveal direction="up" delay={0.2}>
             <h2 className="text-4xl md:text-5xl font-space font-bold mb-4">About Me</h2>
-          
-          
+          </ScrollReveal>
+          <ScrollReveal direction="up" delay={0.4}>
             <p className="text-xl text-foreground/70 max-w-3xl mx-auto">
-              I’m Mugambi Lewis — a Mechanical Engineer with a creative edge in Web Development and Graphic Design. I solve real-world problems through engineering precision and digital innovation.
+              I'm Mugambi Lewis — a Mechanical Engineer with a creative edge in Web Development and Graphic Design. I solve real-world problems through engineering precision and digital innovation.
             </p>
-          
+          </ScrollReveal>
         </div>
 
         {/* Expandable Section */}
         <div className={`transition-all duration-500 ${isExpanded ? 'max-h-none' : 'max-h-96 overflow-hidden'}`}>
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-12">
             {/* Avatar & Intro */}
-            
+            <ScrollReveal direction="right" delay={0.6}>
               <div className="text-center lg:text-left">
-                <div className="w-48 h-48 mx-auto lg:mx-0 rounded-full bg-gradient-to-br from-blue-500/20 to-purple-600/20 flex items-center justify-center mb-6">
-                  <img className="w-40 h-40 rounded-full flex items-center justify-center object-cover" 
-                    src="https://res.cloudinary.com/drq4idzdj/image/upload/v1751158413/_0167f670-210e-435f-9b1c-2a852f8eb6b8_uhszec.jpg"
-                    alt="Mugambi Lewis"
-                  />
-                   
-                </div>
-                <p className="text-lg text-foreground/80 leading-relaxed">
-                  I'm a versatile creator at the intersection of Engineering, Design, and Technology. <br /><br />
-                  I’ve designed energy systems like solar EV chargers, developed modern websites with React and Tailwind, and built strong brand visuals for individuals and businesses.
-                  <br /><br />
-                  I’m open to working with engineering firms, startups, and clients who need reliable, impactful solutions — whether physical or digital. Let’s build something that works.
-                  I believe in solutions that perform — whether they run on code, energy, or ideas.
-                </p>
+                <ScrollReveal direction="scale" delay={0.8}>
+                  <div className="w-48 h-48 mx-auto lg:mx-0 rounded-full bg-gradient-to-br from-blue-500/20 to-purple-600/20 flex items-center justify-center mb-6">
+                    <img className="w-40 h-40 rounded-full flex items-center justify-center object-cover" 
+                      src="https://res.cloudinary.com/drq4idzdj/image/upload/v1751158413/_0167f670-210e-435f-9b1c-2a852f8eb6b8_uhszec.jpg"
+                      alt="Mugambi Lewis"
+                    />
+                  </div>
+                </ScrollReveal>
+                <ScrollReveal direction="up" delay={1.0}>
+                  <p className="text-lg text-foreground/80 leading-relaxed">
+                    I'm a versatile creator at the intersection of Engineering, Design, and Technology. <br /><br />
+                    I've designed energy systems like solar EV chargers, developed modern websites with React and Tailwind, and built strong brand visuals for individuals and businesses.
+                    <br /><br />
+                    I'm open to working with engineering firms, startups, and clients who need reliable, impactful solutions — whether physical or digital. Let's build something that works.
+                    I believe in solutions that perform — whether they run on code, energy, or ideas.
+                  </p>
+                </ScrollReveal>
               </div>
+            </ScrollReveal>
             
 
             {/* Expertise Cards */}
-            <div className="space-y-6">
-              {expertiseAreas.map((area) => (
-               
-                  <Card className="p-6 bg-background/60 backdrop-blur-sm border-border/40 hover:shadow-lg transition-all duration-300 hover:scale-105">
-                    <div className="flex items-center space-x-4">
-                      <div className="text-3xl">{area.icon}</div>
-                      <div>
-                        <h3 className="text-xl font-space font-semibold mb-2">{area.title}</h3>
-                        <p className="text-foreground/70">{area.description}</p>
-                      </div>
-                    </div>
-                  </Card>
-               
-              ))}
-            </div>
+            <ScrollReveal direction="left" delay={0.8}>
+              <div className="space-y-6">
+                {expertiseAreas.map((area, index) => (
+                  <ScrollReveal key={index} direction="up" delay={1.0 + index * 0.2}>
+                    <MagneticHover intensity={0.05}>
+                      <Card className="p-6 bg-background/60 backdrop-blur-sm border-border/40 hover:shadow-lg transition-all duration-300 hover:scale-105">
+                        <div className="flex items-center space-x-4">
+                          <ScrollReveal direction="scale" delay={1.2 + index * 0.2}>
+                            <div className="text-3xl">{area.icon}</div>
+                          </ScrollReveal>
+                          <div>
+                            <h3 className="text-xl font-space font-semibold mb-2">{area.title}</h3>
+                            <p className="text-foreground/70">{area.description}</p>
+                          </div>
+                        </div>
+                      </Card>
+                    </MagneticHover>
+                  </ScrollReveal>
+                ))}
+              </div>
+            </ScrollReveal>
           </div>
 
           {/* Expanded Timeline */}
@@ -116,15 +126,19 @@ export function AboutSection() {
         </div>
 
         {/* Toggle Button */}
-        <div className="text-center mt-8">
-          <Button
-            onClick={() => setIsExpanded(!isExpanded)}
-            variant="outline"
-            className="px-8 py-3 rounded-xl border-2 border-border/40 bg-background/60 backdrop-blur-sm hover:bg-accent/80 transition-all duration-300"
-          >
-            {isExpanded ? 'Show Less' : 'See More'}
-          </Button>
-        </div>
+        <ScrollReveal direction="up" delay={1.4}>
+          <div className="text-center mt-8">
+            <MagneticHover>
+              <Button
+                onClick={() => setIsExpanded(!isExpanded)}
+                variant="outline"
+                className="px-8 py-3 rounded-xl border-2 border-border/40 bg-background/60 backdrop-blur-sm hover:bg-accent/80 transition-all duration-300"
+              >
+                {isExpanded ? 'Show Less' : 'See More'}
+              </Button>
+            </MagneticHover>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );

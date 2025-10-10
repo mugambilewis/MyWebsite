@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/Button';
 import { StaggeredReveal } from '@/components/StaggeredReveal';
 import { StaggeredItem } from '@/components/StaggeredItem';
 import { Link } from 'react-router-dom';
+import { ScrollReveal, MagneticHover } from '@/components/ScrollAnimations';
 
 export function ProjectsSection() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -84,29 +85,35 @@ export function ProjectsSection() {
     <section id="projects" className="py-20 px-8 md:px-16">
       <div className="max-w-[1440px] mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-space font-bold mb-4">Featured Projects</h2>
-          <p className="text-xl text-foreground/70 max-w-3xl mx-auto">
-            A showcase of my latest work across engineering, development, and design
-          </p>
+          <ScrollReveal direction="up" delay={0.2}>
+            <h2 className="text-4xl md:text-5xl font-space font-bold mb-4">Featured Projects</h2>
+          </ScrollReveal>
+          <ScrollReveal direction="up" delay={0.4}>
+            <p className="text-xl text-foreground/70 max-w-3xl mx-auto">
+              A showcase of my latest work across engineering, development, and design
+            </p>
+          </ScrollReveal>
         </div>
 
         {/* Filter Buttons */}
-        
+        <ScrollReveal direction="up" delay={0.6}>
           <div className="flex flex-wrap justify-center gap-4 mb-12">
-            {filters.map((filterItem) => (
-              <Button
-                key={filterItem}
-                onClick={() => setFilter(filterItem)}
-                variant={filter === filterItem ? 'default' : 'outline'}
-                className={`px-6 py-2 rounded-full transition-all duration-300 ${filter === filterItem
-                    ? 'bg-blue-600 text-white'
-                    : 'border-border/40 bg-background/60 backdrop-blur-sm hover:bg-accent/80'
-                  }`}
-              >
-                {filterItem}
-              </Button>
+            {filters.map((filterItem, index) => (
+              <MagneticHover key={filterItem} intensity={0.1}>
+                <Button
+                  onClick={() => setFilter(filterItem)}
+                  variant={filter === filterItem ? 'default' : 'outline'}
+                  className={`px-6 py-2 rounded-full transition-all duration-300 ${filter === filterItem
+                      ? 'bg-blue-600 text-white'
+                      : 'border-border/40 bg-background/60 backdrop-blur-sm hover:bg-accent/80'
+                    }`}
+                >
+                  {filterItem}
+                </Button>
+              </MagneticHover>
             ))}
           </div>
+        </ScrollReveal>
         
 
         {/* ✅ Fix: Pass dynamic keyProp to StaggeredReveal */}
@@ -114,81 +121,97 @@ export function ProjectsSection() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProjects.map((project, index) => (
               <StaggeredItem key={index}>
-                <Card className="group overflow-hidden bg-background/60 backdrop-blur-sm border-border/40 hover:shadow-xl transition-all duration-500 hover:scale-105">
-                  <div className="relative overflow-hidden">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <div className="absolute bottom-4 left-4 right-4 opacity-100 transition-opacity duration-300">
-  {project.link ? (
-    <a
-      href={project.link}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <Button
-        size="sm"
-        className="bg-blue-600/30 backdrop-blur-sm border border-blue-500 text-white hover:bg-blue-700 transition"
-      >
-        View Project →
-      </Button>
-    </a>
-  ) : project.route ? (
-    <Link to={project.route}>
-      <Button
-        size="sm"
-        className="bg-blue-600/90 backdrop-blur-sm border border-blue-500 text-white hover:bg-blue-700 transition"
-      >
-        View Project →
-      </Button>
-    </Link>
-  ) : (
-    <Button
-      size="sm"
-      disabled
-      className="bg-blue-400/50 border border-blue-300 text-white/70 cursor-not-allowed"
-    >
-      View Project →
-    </Button>
-  )}
-</div>
-
-
-                  </div>
-
-                  <div className="p-6">
-                    <h3 className="text-xl font-space font-bold mb-3">{project.title}</h3>
-                    <p className="text-foreground/70 mb-4 leading-relaxed">{project.description}</p>
-                    <div className="flex flex-wrap gap-2">
-                      {project.tags.map((tag, tagIndex) => (
-                        <span
-                          key={tagIndex}
-                          className="px-3 py-1 text-xs bg-gradient-to-r from-blue-500/10 to-purple-600/10 text-blue-600 dark:text-blue-400 rounded-full border border-blue-500/20"
-                        >
-                          {tag}
-                        </span>
-                      ))}
+                <MagneticHover intensity={0.05}>
+                  <Card className="group overflow-hidden bg-background/60 backdrop-blur-sm border-border/40 hover:shadow-xl transition-all duration-500 hover:scale-105">
+                    <div className="relative overflow-hidden">
+                      <ScrollReveal direction="scale" delay={index * 0.1}>
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                        />
+                      </ScrollReveal>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      <div className="absolute bottom-4 left-4 right-4 opacity-100 transition-opacity duration-300">
+                        {project.link ? (
+                          <MagneticHover intensity={0.2}>
+                            <a
+                              href={project.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <Button
+                                size="sm"
+                                className="bg-blue-600/30 backdrop-blur-sm border border-blue-500 text-white hover:bg-blue-700 transition"
+                              >
+                                View Project →
+                              </Button>
+                            </a>
+                          </MagneticHover>
+                        ) : project.route ? (
+                          <MagneticHover intensity={0.2}>
+                            <Link to={project.route}>
+                              <Button
+                                size="sm"
+                                className="bg-blue-600/90 backdrop-blur-sm border border-blue-500 text-white hover:bg-blue-700 transition"
+                              >
+                                View Project →
+                              </Button>
+                            </Link>
+                          </MagneticHover>
+                        ) : (
+                          <Button
+                            size="sm"
+                            disabled
+                            className="bg-blue-400/50 border border-blue-300 text-white/70 cursor-not-allowed"
+                          >
+                            View Project →
+                          </Button>
+                        )}
+                      </div>
                     </div>
-                  </div>
-                </Card>
+
+                    <div className="p-6">
+                      <ScrollReveal direction="up" delay={index * 0.1 + 0.1}>
+                        <h3 className="text-xl font-space font-bold mb-3">{project.title}</h3>
+                      </ScrollReveal>
+                      <ScrollReveal direction="up" delay={index * 0.1 + 0.2}>
+                        <p className="text-foreground/70 mb-4 leading-relaxed">{project.description}</p>
+                      </ScrollReveal>
+                      <ScrollReveal direction="up" delay={index * 0.1 + 0.3}>
+                        <div className="flex flex-wrap gap-2">
+                          {project.tags.map((tag, tagIndex) => (
+                            <span
+                              key={tagIndex}
+                              className="px-3 py-1 text-xs bg-gradient-to-r from-blue-500/10 to-purple-600/10 text-blue-600 dark:text-blue-400 rounded-full border border-blue-500/20"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      </ScrollReveal>
+                    </div>
+                  </Card>
+                </MagneticHover>
               </StaggeredItem>
             ))}
           </div>
         </StaggeredReveal>
 
         {/* Toggle Button */}
-        <div className="text-center mt-12">
-          <Button
-            onClick={() => setIsExpanded(!isExpanded)}
-            variant="outline"
-            className="px-8 py-3 rounded-xl border-2 border-border/40 bg-background/60 backdrop-blur-sm hover:bg-accent/80 transition-all duration-300"
-          >
-            {isExpanded ? 'Show Featured Only' : 'View All Projects'}
-          </Button>
-        </div>
+        <ScrollReveal direction="up" delay={0.8}>
+          <div className="text-center mt-12">
+            <MagneticHover>
+              <Button
+                onClick={() => setIsExpanded(!isExpanded)}
+                variant="outline"
+                className="px-8 py-3 rounded-xl border-2 border-border/40 bg-background/60 backdrop-blur-sm hover:bg-accent/80 transition-all duration-300"
+              >
+                {isExpanded ? 'Show Featured Only' : 'View All Projects'}
+              </Button>
+            </MagneticHover>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );
