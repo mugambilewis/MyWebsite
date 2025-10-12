@@ -12,12 +12,29 @@ export function ProjectsSection() {
 
   const projects = [
     {
+      title: 'Kitchen CAD Layout (Rapid Design Delivery)',
+      description: 'Developed a clean, functional kitchen CAD layout from rough builder sketches and site measurements under tight deadlines. Focused on precision, cabinet alignment, appliance integration, and clear design communication for client approval.',
+      tags: ['CAD Design', 'AutoCAD', 'Mechanical Design', 'Interior Layout', '2D Drafting'],
+      category: 'Engineering',
+      image: 'https://res.cloudinary.com/drq4idzdj/image/upload/v1760228555/Kitchen_layout_supa8w.png',
+      link: 'https://www.behance.net/mugambilewis', 
+    },
+
+    {
       title: 'CryptoTuma Exchange',
       description: `CryptoTuma is a fast and secure crypto transfer platform built in collaboration with blockchain developers. It simplifies complex wallets with an intuitive, responsive UI and real-time performance powered by modern web technologies.`,
       tags: ['Web', 'React', 'NodeJS', 'CryptoPayments', 'NodeJS', 'MongoDB', 'Express'],
       category: 'Web',
       image: '/Homepage.jpg',
       link: 'https://cryptotuma.vercel.app/',
+    },
+    {
+      title: 'Modern UI Design Showcase',
+  description: 'A collection of sleek, user-centered interface designs crafted in Figma. Focused on usability, visual balance, and modern design aesthetics for mobile and web applications.',
+      tags: ['Design', 'Mobile', 'UI/UX', 'Figma', 'PhotoShop', 'CorelDRAW', 'Posters'],
+      category: 'Design',
+      image: 'https://res.cloudinary.com/drq4idzdj/image/upload/v1750977453/pexels-shkrabaanthony-4348401_cwdnzq.jpg',
+      route: '/projects/GraphicsShowcase',
     },
     {
       title: 'DigiCore',
@@ -27,6 +44,15 @@ export function ProjectsSection() {
       image: '/DigiCore homepage.png',
       link: 'https://digitalcore-e-storefront.lovable.app',
     },
+    {
+      title: 'Futuristic Online School Platform',
+      description: 'Designed a premium, futuristic e-learning platform offering structured digital courses. The project includes a full UI/UX system, course structures, information architecture, and backend specifications covering authentication, course management, progress tracking, and certification flows.',
+      tags: ['Product Design', 'Web Architecture', 'UI/UX', 'E-Learning', 'Full-Stack Design'],
+      category: 'Web ',
+      image: 'https://res.cloudinary.com/drq4idzdj/image/upload/v1760230238/homepage1_m30ibn.jpg',
+      link: 'https://apexdigitalschool.vercel.app',
+    },
+
     {
       title: 'Portable Solar Charger for E-Rickshaw',
       description: 'Engineered a compact, off-grid solar charging system for electric rickshaws. Focused on portability, energy efficiency, and clean power delivery using Proteus simulation and real-world prototyping.',
@@ -57,17 +83,10 @@ export function ProjectsSection() {
       tags: ['Design', 'Branding', 'Figma', 'Identity'],
       category: 'Design',
       image: 'https://images.unsplash.com/photo-1493397212122-2b85dda8106b?w=800&h=600&fit=crop',
-    },
+    }
   
 
-    {
-      title: 'Graphics Design',
-      description: 'See some amazing graphics i worked on.',
-      tags: ['Design', 'Mobile', 'UI/UX', 'Figma'],
-      category: 'Design',
-      image: 'https://res.cloudinary.com/drq4idzdj/image/upload/v1750977453/pexels-shkrabaanthony-4348401_cwdnzq.jpg',
-      route: '/projects/GraphicsShowcase',
-    },
+    
   ];
 
   const filters = ['All', 'Web', 'Engineering', 'Design'];
@@ -98,7 +117,7 @@ export function ProjectsSection() {
         {/* Filter Buttons */}
         <ScrollReveal direction="up" delay={0.6}>
           <div className="flex flex-wrap justify-center gap-4 mb-12">
-            {filters.map((filterItem, index) => (
+            {filters.map((filterItem) => (
               <MagneticHover key={filterItem} intensity={0.1}>
                 <Button
                   onClick={() => setFilter(filterItem)}

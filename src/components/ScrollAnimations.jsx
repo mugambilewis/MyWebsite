@@ -357,3 +357,5 @@ export function AnimatedCounter({
 
 // Import useState for TextReveal and AnimatedCounter
 import { useState } from 'react';
+
+
