@@ -30,7 +30,7 @@ export function ContactSection() {
 
     try {
       await emailjs.send(
-        'service_ks25brp',
+        'service_oudkwz4',
         'template_xki6ogq',
         {
           name: formData.name,
