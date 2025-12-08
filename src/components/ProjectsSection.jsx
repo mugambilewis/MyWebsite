@@ -19,6 +19,15 @@ export function ProjectsSection() {
       image: 'https://res.cloudinary.com/drq4idzdj/image/upload/v1760228555/Kitchen_layout_supa8w.png',
       link: 'https://www.behance.net/mugambilewis', 
     },
+     {
+      title: 'Roboleads AI',
+      description: 'Roboleads AI is a smart lead generation and automation tool built with a clean modern interface. It delivers fast performance, smooth interactions, and an intuitive workflow that helps users capture and manage leads with ease.',
+      tags: ['React', 'Tailwind', 'Node.js', 'E Commerce', 'Animations'],
+      category: 'Web',
+      image: '/Roboleads.png',
+      link: 'https://roboleads.vercel.app/',
+    },
+
 
     {
       title: 'CryptoTuma Exchange',
@@ -44,6 +53,7 @@ export function ProjectsSection() {
       image: '/DigiCore homepage.png',
       link: 'https://digitalcore-e-storefront.lovable.app',
     },
+   
     {
       title: 'Futuristic Online School Platform',
       description: 'Designed a premium, futuristic e-learning platform offering structured digital courses. The project includes a full UI/UX system, course structures, information architecture, and backend specifications covering authentication, course management, progress tracking, and certification flows.',
@@ -83,6 +93,14 @@ export function ProjectsSection() {
       tags: ['Design', 'Branding', 'Figma', 'Identity'],
       category: 'Design',
       image: 'https://images.unsplash.com/photo-1493397212122-2b85dda8106b?w=800&h=600&fit=crop',
+    },
+    {
+      title: 'Apex Digital School Platform',
+      description: 'Apex is a digital school that offers futuristic online courses with a sleek UI/UX design. The platform includes course management, progress tracking, and certification features, all built for an engaging learning experience.',
+      tags: ['React', 'Tailwind', 'Node.js', 'E Commerce', 'Animations'],
+      category: 'Web',
+      image: '/Apex Homepage.png',
+      link: 'https://apexdigitalschool.vercel.app/',
     }
   
 
