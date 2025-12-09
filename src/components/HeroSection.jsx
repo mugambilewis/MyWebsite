@@ -111,7 +111,7 @@ const HeroSection = () => {
                     href="https://wa.me/+254794644395"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="glow-effect px-6 py-3 text-lg rounded-lg border border-primary/20 text-white flex items-center justify-center space-x-2  transition"
+                    className="glow-effect px-6 py-3 text-lg rounded-lg border border-primary/20  flex items-center justify-center space-x-2  transition"
                   >
                     <FaWhatsapp className="mr-2" />
                     <span>Contact on WhatsApp</span>
