@@ -33,19 +33,15 @@ export function AboutSection() {
           <ScrollReveal direction="up" delay={0.2}>
             <h2 className="text-4xl md:text-5xl font-space font-bold mb-4">About Me</h2>
           </ScrollReveal>
-          <ScrollReveal direction="up" delay={0.4}>
-            <p className="text-xl text-foreground/70 max-w-3xl mx-auto">
-              I'm Mugambi Lewis — a Mechanical Engineer with a creative edge in Web Development and Graphic Design. I solve real-world problems through engineering precision and digital innovation.
-            </p>
-          </ScrollReveal>
+         
         </div>
 
         {/* Expandable Section */}
         <div className={`transition-all duration-500 ${isExpanded ? 'max-h-none' : 'max-h-96 overflow-hidden'}`}>
-          <div className="grid lg:grid-cols-2 gap-12 items-center mb-12">
+          <div className="grid lg:grid-cols-2 gap-12  mb-12">
             {/* Avatar & Intro */}
             <ScrollReveal direction="right" delay={0.6}>
-              <div className="text-center lg:text-left">
+              <div className=" lg:text-left">
                 
                 <ScrollReveal direction="up" delay={1.0}>
                   <p className="text-lg text-foreground/80 leading-relaxed">
