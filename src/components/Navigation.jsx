@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import { ThemeToggle } from '../components/ThemeToggle';
+import { ThemeToggle } from './ThemeToggle';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const toggleMenu = () => setIsMenuOpen(prev => !prev);
   const closeMenu = () => setIsMenuOpen(false);
@@ -18,6 +22,20 @@ export function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Watch the router location hash and scroll into view when it changes
+  useEffect(() => {
+    if (location.hash) {
+      // small delay to allow the DOM to render after navigation
+      setTimeout(() => {
+        const el = document.querySelector(location.hash);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+        closeMenu();
+      }, 50);
+    }
+  }, [location]);
+
   const navItems = [
     { label: 'Home', href: '#home' },
     { label: 'About', href: '#about' },
@@ -28,25 +46,29 @@ export function Navigation() {
   ];
 
   const scrollToSection = (href) => {
-  const element = document.querySelector(href);
-  if (element) {
-    element.scrollIntoView({ behavior: 'smooth' });
+    // If we're not on the home path, navigate there with a hash.
+    if (location.pathname !== '/') {
+      // navigate to '/#section' — the effect above will handle scrolling
+      navigate(`/${href}`);
+      return;
+    }
 
-    // 👇 Add this to update the URL hash
-    window.history.pushState(null, '', href);
-
-    closeMenu();
-  }
-};
-
+    // If already on home, directly scroll to element
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      // update the URL hash without causing another navigation
+      window.history.pushState(null, '', href);
+      closeMenu();
+    } else {
+      // Fallback: navigate to path with hash so the hash-effect handles it
+      navigate(`/${href}`);
+    }
+  };
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-  isScrolled
-    ? 'bg-background/80 backdrop-blur-md border-b border-border/40'
-    : 'bg-background/60 backdrop-blur-md border-b border-border/40'
-}`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-background/80 backdrop-blur-md border-b border-border/40' : 'bg-background/60 backdrop-blur-md border-b border-border/40'}`}
     >
       <div className="max-w-[1440px] mx-auto px-8 md:px-16">
         <div className="flex items-center justify-between h-16">

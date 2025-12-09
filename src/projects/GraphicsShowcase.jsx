@@ -54,10 +54,14 @@ const GraphicsShowcase = () => {
     >
       <Navigation />
       <div className="flex h-full">
+        {/* Show 2 columns on mobile, all 5 on desktop */}
         {columns.map((columnPosters, columnIndex) => (
-          <div key={columnIndex} className="flex-1 relative overflow-hidden">
+          <div 
+            key={columnIndex} 
+            className={`flex-1 relative overflow-hidden ${columnIndex >= 2 ? 'hidden md:block' : ''}`}
+          >
             <motion.div
-              className="flex flex-col space-y-4 p-2"
+              className="flex flex-col space-y-4 p-1 md:p-2"
               animate={{ y: animationDirections[columnIndex].y }}
               transition={{
                 duration: isHovered ? 15 : 30,
@@ -87,7 +91,7 @@ const GraphicsShowcase = () => {
 
       {/* Optional Overlay */}
       <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-background/5 via-transparent to-background/5" />
-    <Footer />
+      <Footer />
     </div>
       
   );

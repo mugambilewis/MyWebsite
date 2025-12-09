@@ -4,10 +4,16 @@ import { SpeedInsights } from '@vercel/speed-insights/react';
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import { ProjectsSection } from "./components/ProjectsSection";
 import GraphicsShowcase from '/src/projects/GraphicsShowcase.jsx';
+
+import { ThemeProvider } from '@/components/ThemeProvider';
+import { SmoothScrollProvider } from '@/components/SmoothScroll';
+import { Navigation } from '@/components/Navigation';
+import { Footer } from '@/components/Footer';
 
 const queryClient = new QueryClient();
 
@@ -22,14 +28,20 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="*" element={<NotFound />} />
-            <Route path="/projects" element={<ProjectsSection />} />
-            <Route path="/projects/GraphicsShowcase" element={<GraphicsShowcase />} />
-          </Routes>
-        </BrowserRouter>
+        <ThemeProvider defaultTheme="system" storageKey="portfolio-theme">
+          <SmoothScrollProvider>
+            <BrowserRouter>
+              <Navigation />
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/projects" element={<ProjectsSection />} />
+                <Route path="/projects/GraphicsShowcase" element={<GraphicsShowcase />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </BrowserRouter>
+            <Footer />
+          </SmoothScrollProvider>
+        </ThemeProvider>
       </TooltipProvider>
     </QueryClientProvider>
   </>
