@@ -22,20 +22,22 @@ const GraphicsShowcase = () => {
     { id: '10', src: 'https://res.cloudinary.com/dkcqakosa/image/upload/v1735663248/8_iv5jkt.jpg', aspectRatio: 4 / 5 },
     { id: '11', src: 'https://res.cloudinary.com/dkcqakosa/image/upload/v1735663461/5_ro5xfw.jpg', aspectRatio: 8 / 13 },
     { id: '12', src: 'https://res.cloudinary.com/dkcqakosa/image/upload/v1735626061/WhatsApp_Image_2024-09-21_at_12.16.56_a649113a_bacmrp.jpg', aspectRatio: 8 / 11 },
-    { id: '11', src: 'https://res.cloudinary.com/dkcqakosa/image/upload/v1735663461/5_ro5xfw.jpg', aspectRatio: 8 / 13 },
-    { id: '12', src: 'https://res.cloudinary.com/dkcqakosa/image/upload/v1735626061/WhatsApp_Image_2024-09-21_at_12.16.56_a649113a_bacmrp.jpg', aspectRatio: 8 / 11 },
-    { id: '11', src: 'https://res.cloudinary.com/drq4idzdj/image/upload/v1759865095/Our_graphic_design_services_p05jqw.jpg', aspectRatio: 8 / 13 },
-    { id: '12', src: 'https://res.cloudinary.com/drq4idzdj/image/upload/v1759865094/Graphic_design_Services_p6bceh.jpg', aspectRatio: 8 / 11 },
+    { id: '13', src: 'https://res.cloudinary.com/dkcqakosa/image/upload/v1735663461/5_ro5xfw.jpg', aspectRatio: 2 / 3 },
+    { id: '14', src: 'https://res.cloudinary.com/dkcqakosa/image/upload/v1735626061/WhatsApp_Image_2024-09-21_at_12.16.56_a649113a_bacmrp.jpg', aspectRatio: 4 / 5 },
+    { id: '15', src: 'https://res.cloudinary.com/drq4idzdj/image/upload/v1759865095/Our_graphic_design_services_p05jqw.jpg', aspectRatio: 8 / 13 },
+    { id: '16', src: 'https://res.cloudinary.com/drq4idzdj/image/upload/v1759865094/Graphic_design_Services_p6bceh.jpg', aspectRatio: 8 / 11 },
+     { id: '17', src: 'https://res.cloudinary.com/drq4idzdj/image/upload/v1765319094/Birthday_poster_ps6tey.png', aspectRatio: 2 / 3 },
+    { id: '18', src: 'https://res.cloudinary.com/drq4idzdj/image/upload/v1765319090/Linda_grocery_mqa0b6.png', aspectRatio: 4 / 5 },
   ];
 
   // Repeat to create looping effect - distributed across 5 columns
 
   // Create 5 columns with distributed data
-  const column1 = [...posterData.slice(0, 3), ...posterData.slice(0, 3), ...posterData.slice(0, 3)];
-  const column2 = [...posterData.slice(3, 5), ...posterData.slice(3, 5), ...posterData.slice(3, 5)];
-  const column3 = [...posterData.slice(5, 8), ...posterData.slice(5, 8), ...posterData.slice(5, 8)];
-  const column4 = [...posterData.slice(8, 10), ...posterData.slice(8, 10), ...posterData.slice(8, 10)];
-  const column5 = [...posterData.slice(10, 12), ...posterData.slice(10, 12), ...posterData.slice(10, 12)];
+  const column1 = [...posterData.slice(0, 4), ...posterData.slice(0, 4), ...posterData.slice(0, 4)];
+  const column2 = [...posterData.slice(4, 8), ...posterData.slice(4, 8), ...posterData.slice(4, 8)];
+  const column3 = [...posterData.slice(8, 11), ...posterData.slice(8, 11), ...posterData.slice(8, 11)];
+  const column4 = [...posterData.slice(11, 15), ...posterData.slice(11, 15), ...posterData.slice(11, 15)];
+  const column5 = [...posterData.slice(15, 18), ...posterData.slice(15, 18), ...posterData.slice(15, 18)];
 
   const columns = [column1, column2, column3, column4, column5];
   const animationDirections = [
